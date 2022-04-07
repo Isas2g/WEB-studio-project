@@ -227,3 +227,8 @@ class Forms(Model):
     created_at = models.DateTimeField()
     denied_at = models.DateTimeField()
     is_accepted = models.DateTimeField()
+
+    class Meta:
+        db_table = 'forms'
+        verbose_name = 'Форма'
+        verbose_name_plural = 'Формы'
