@@ -18,6 +18,7 @@ class Role(Model):
         db_table = 'role'
         verbose_name = 'Роль'
         verbose_name_plural = 'Роли'
+from WebStudio.projects.models import Projects
 
     def __str__(self):
         return self.title
@@ -105,24 +106,6 @@ class FilesProjects(Model):
     )
 
 
-class Projects(Model):
-    id = models.BigIntegerField()
-    title = models.TextField()
-    created_at = models.DateTimeField()
-    closed_at = models.DateTimeField()
-    description = models.TextField()
-    icon_url = models.TextField()
-    creator_id = models.ManyToManyField(CustomUsers, verbose_name="создатель", related_name="project_creator")
-
-    class Meta:
-        db_table = 'projects'
-        verbose_name = 'Проект'
-        verbose_name_plural = 'Проекты'
-
-    def __str__(self):
-        return self.title
-
-
 class Boards(Model):
     id = models.BigIntegerField()
     title = models.TextField()
@@ -134,31 +117,6 @@ class Boards(Model):
         db_table = 'boards'
         verbose_name = 'Доска'
         verbose_name_plural = 'Доски'
-
-
-class ProjectParticipants(Model):
-    project_id = models.BigIntegerField()
-    user_id = models.BigIntegerField()
-    position_id = models.BigIntegerField()
-    invited_at = models.DateTimeField()
-    kicked_at = models.DateTimeField()
-
-    class Meta:
-        db_table = 'project_participant'
-        verbose_name = 'Участник проекта'
-        verbose_name_plural = 'Участники проекта'
-
-
-class Postions(Model):
-    id = models.BigIntegerField()
-    name = models.TextField()
-    project_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
-    color = models.TextField()
-
-    class Meta:
-        db_table = 'positions'
-        verbose_name = 'Должность'
-        verbose_name_plural = 'Должности'
 
 
 class TaskTags(Model):
