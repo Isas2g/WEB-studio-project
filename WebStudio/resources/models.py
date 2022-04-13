@@ -5,6 +5,7 @@ from django.db.models import ImageField, ForeignKey, CASCADE
 from django.db.models import Model, CharField
 
 from resources.managers import CustomUserManager
+from django.db import models
 
 
 class Role(Model):
@@ -200,6 +201,19 @@ class BoardTasks(Model):
         verbose_name_plural = 'Задачи досок'
 
 
+class FilesProjects(Model):
+    title = CharField(
+        max_length=64,
+        unique=True,
+        verbose_name='название'
+    )
+    file = CharField(
+        max_length=64,
+        unique=True,
+        verbose_name='файл'
+    )
+
+
 class Backups(Model):
     id = models.BigIntegerField()
     board_id = models.ForeignKey(Boards, on_delete=models.CASCADE)
@@ -224,6 +238,11 @@ class TaskComment(Model):
         db_table = 'task_comment'
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
+
+
+        db_table = 'user_roles'
+        verbose_name = 'Роль'
+        verbose_name_plural = 'Роли'
 
 
 class Forms(Model):
