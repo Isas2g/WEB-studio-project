@@ -1,10 +1,10 @@
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.validators import UnicodeUsernameValidator
-from django.db.models import Model, CharField, ImageField
+from django.db import models
+from django.db.models import ImageField, ForeignKey, CASCADE
+from django.db.models import Model, CharField
 
 from resources.managers import CustomUserManager
-from django.db.models import Model, CharField
-from django.db import models
 
 
 class Role(Model):
@@ -37,7 +37,7 @@ class CustomUsers(AbstractUser):
         },
     )
 
-    role = Role()
+    role = ForeignKey(Role, on_delete=CASCADE)
 
     avatar = ImageField(upload_to='user/avatar/', blank=True, null=True)
     first_name = None
@@ -70,7 +70,7 @@ class Posts(Model):
         return self.title
 
 
-class HumanContacts(Model):
+class UserContacts(Model):
     user = CustomUsers
     title = CharField(
         'название',
@@ -211,41 +211,19 @@ class Backups(Model):
         verbose_name_plural = 'Резервные копии'
 
 
-class UserContacts(Model):
-    user_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
-    contact_name = models.TextField()
-    link = models.TextField()
-
-    class Meta:
-        db_table = 'user_contacts'
-        verbose_name = 'Контакт'
-        verbose_name_plural = 'Контакты'
-
-
-class UserRoles(Model):
+class TaskComment(Model):
     id = models.BigIntegerField()
-    title = models.TextField()
-    access_level = models.BigIntegerField()
+    content = models.TextField()
+    created_at = models.DateTimeField()
+    author_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
+    updated_at = models.DateTimeField()
+    is_reply = models.BooleanField()
+    # reply_comment_id = models.ForeignKey(TaskComment, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'user_roles'
-        verbose_name = 'Роль'
-        verbose_name_plural = 'Роли'
-
-
-# class TaskComment(Model):
-#     id = models.BigIntegerField()
-#     content = models.TextField()
-#     created_at = models.DateTimeField()
-#     author_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
-#     updated_at = models.DateTimeField()
-#     is_reply = models.BooleanField()
-#     # reply_comment_id = models.ForeignKey(TaskComment, on_delete=models.CASCADE)
-#
-#     class Meta:
-#         db_table = 'task_comment'
-#         verbose_name = 'Комментарий'
-#         verbose_name_plural = 'Комментарии'
+        db_table = 'task_comment'
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
 
 
 class Forms(Model):
