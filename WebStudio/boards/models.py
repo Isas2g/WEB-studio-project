@@ -4,7 +4,6 @@ from users.models import CustomUsers
 
 
 class Boards(models.Model):
-    id = models.BigIntegerField()
     title = models.TextField()
     project_id = models.ForeignKey(Projects, on_delete=models.CASCADE)
     created_at = models.DateTimeField()
@@ -17,7 +16,6 @@ class Boards(models.Model):
 
 
 class TaskTags(models.Model):
-    id = models.BigIntegerField()
     text = models.TextField()
     color = models.TextField()
 
@@ -28,7 +26,6 @@ class TaskTags(models.Model):
 
 
 class Tasks(models.Model):
-    id = models.BigIntegerField()
     title = models.TextField()
     description = models.TextField()
     board_id = models.ForeignKey(Boards, on_delete=models.CASCADE)
@@ -46,7 +43,6 @@ class Tasks(models.Model):
 
 
 class BoardColumns(models.Model):
-    id = models.BigIntegerField()
     board_id = models.ForeignKey(Boards, on_delete=models.CASCADE)
     title = models.TextField()
     creator_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
@@ -69,7 +65,6 @@ class BoardTasks(models.Model):
 
 
 class TaskComment(models.Model):
-    id = models.BigIntegerField()
     content = models.TextField()
     created_at = models.DateTimeField()
     author_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)

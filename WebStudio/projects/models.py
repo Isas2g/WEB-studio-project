@@ -2,7 +2,6 @@ from django.db import models
 from users.models import CustomUsers
 
 class Projects(models.Model):
-    id = models.BigIntegerField()
     title = models.TextField()
     created_at = models.DateTimeField()
     closed_at = models.DateTimeField()
