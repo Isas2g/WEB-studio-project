@@ -1,6 +1,6 @@
 from django.db import models
-from WebStudio.projects.models import Projects
-from WebStudio.resources.models import CustomUsers
+from projects.models import Projects
+from users.models import CustomUsers
 
 
 class Boards(models.Model):

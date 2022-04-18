@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-from loguru import logger
 from environs import Env
 
 env = Env()
@@ -42,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'resources'
+    'users',
+    # 'boards',
+    # 'projects',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +123,7 @@ USE_TZ = True
 
 # User
 
-AUTH_USER_MODEL = 'resources.CustomUsers'
+AUTH_USER_MODEL = 'users.CustomUsers'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/

@@ -1,5 +1,5 @@
 from django.db import models
-from WebStudio.resources.models import CustomUsers
+from users.models import CustomUsers
 
 class Projects(models.Model):
     id = models.BigIntegerField()
