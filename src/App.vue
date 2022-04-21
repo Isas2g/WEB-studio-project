@@ -1,22 +1,18 @@
 <template>
   <div class="app">
-    <header>
-      <div class="logo">Web-Studio</div>
-      <ul>
-        <li class="current">Главная</li>
-        <li>Блог</li>
-        <li>Хочу вступить!</li>
-        <li>О нас</li>
-        <li>Войти</li>
-      </ul>
-    </header>
+    <Header />
     <router-view />
   </div>
 </template>
 
+
 <script>
+import Header from "./components/Header/Header.vue";
+
 export default {
-  components: {},
+  components: {
+    Header,
+  },
 };
 </script>
 
@@ -28,34 +24,6 @@ export default {
   padding: 40px 15px;
   margin: 0 auto;
   font-family: "inter";
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .logo {
-    font-size: 18px;
-  }
-
-  .current {
-    font-weight: 800;
-  }
-
-  ul {
-    display: flex;
-    list-style: none;
-
-    li {
-      margin-right: 15px;
-      cursor: pointer;
-    }
-  }
-}
-
-.main-block {
-  padding: 150px 0 150px 0;
 }
 
 .title {
