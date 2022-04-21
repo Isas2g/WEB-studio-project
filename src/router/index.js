@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/main',
+        path: '/',
         name: 'MainPage',
         component: MainPage
     },
