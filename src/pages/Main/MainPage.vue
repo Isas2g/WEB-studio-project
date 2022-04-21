@@ -1,4 +1,4 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
   <div class="container">
     <main class="main">
       <section class="main__block">
@@ -12,6 +12,18 @@
         <button class="main__more-btn more-btn">Подробнее</button>
       </section>
     </main>
+    <footer class="footer">
+      <section class="footer__block">
+        <h1 class="footer__title title">
+          Связаться с нами
+        </h1>
+        <div class="footer__form">
+        <form class="footer__form name">
+            <input type="text" id="name" name="name">
+        </form>
+        </div>
+      </section>
+    </footer>
   </div>
 </template>
 
@@ -23,6 +35,18 @@ export default {};
 .main {
   &__block {
     padding: 150px 0 150px 0;
+  }
+}
+
+.footer {
+  &__block {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__form {
+
   }
 }
 </style>
