@@ -8,6 +8,6 @@ COPY  requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
 
-RUN python manage.py makemigrations users
+CMD python manage.py makemigrations users
 #RUN python manage.py makemigrations board
-#RUN python manage.py makemigrations projects
+CMD python manage.py makemigrations projects

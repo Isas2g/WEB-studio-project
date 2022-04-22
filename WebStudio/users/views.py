@@ -1,3 +1,20 @@
-from django.shortcuts import render
+from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView
 
-# Create your views here.
+from users.models import *
+from users.serializers import CustomUserSerializer
+
+
+class UsersListCreateView(ListAPIView, CreateAPIView):
+    serializer_class = CustomUserSerializer
+    queryset = CustomUsers.objects.all()
+
+
+class UsersRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
+    serializer_class = CustomUserSerializer
+    queryset = CustomUsers.objects.all()
+
+
+class UsersProjectListView(RetrieveUpdateDestroyAPIView):
+    # serializer_class = CustomUserSerializer
+    # queryset = CustomUsers.objects.all()
+    ...
