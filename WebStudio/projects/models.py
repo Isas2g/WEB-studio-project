@@ -1,6 +1,7 @@
 from django.db import models
 from users.models import CustomUsers
 
+
 class Projects(models.Model):
     title = models.TextField()
     created_at = models.DateTimeField()
@@ -18,22 +19,7 @@ class Projects(models.Model):
         return self.title
 
 
-class ProjectParticipants(models.Model):
-    project_id = models.BigIntegerField()
-    user_id = models.BigIntegerField()
-    position_id = models.BigIntegerField()
-    invited_at = models.DateTimeField()
-    kicked_at = models.DateTimeField()
-
-    class Meta:
-        db_table = 'project_participant'
-        verbose_name = 'Участник проекта'
-        verbose_name_plural = 'Участники проекта'
-
-
-
-class Postions(models.Model):
-    id = models.BigIntegerField()
+class Positions(models.Model):
     name = models.TextField()
     project_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
     color = models.TextField()
@@ -42,3 +28,16 @@ class Postions(models.Model):
         db_table = 'positions'
         verbose_name = 'Должность'
         verbose_name_plural = 'Должности'
+
+
+class ProjectParticipants(models.Model):
+    project_id = models.ForeignKey(Projects, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
+    position_id = models.ForeignKey(Positions, on_delete=models.CASCADE)
+    invited_at = models.DateTimeField()
+    kicked_at = models.DateTimeField()
+
+    class Meta:
+        db_table = 'project_participant'
+        verbose_name = 'Участник проекта'
+        verbose_name_plural = 'Участники проекта'
