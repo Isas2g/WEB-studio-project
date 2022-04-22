@@ -1,4 +1,4 @@
-<template xmlns="http://www.w3.org/1999/html">
+<template>
   <div class="container">
     <main class="main">
       <section class="main__block">
@@ -14,13 +14,11 @@
     </main>
     <footer class="footer">
       <section class="footer__block">
-        <h1 class="footer__title title">
-          Связаться с нами
-        </h1>
+        <h1 class="footer__title title">Связаться с нами</h1>
         <div class="footer__form">
-        <form class="footer__form name">
-            <input type="text" id="name" name="name">
-        </form>
+          <form class="footer__form name">
+            <input type="text" id="name" name="name" />
+          </form>
         </div>
       </section>
     </footer>
@@ -46,7 +44,6 @@ export default {};
     align-items: center;
   }
   &__form {
-
   }
 }
 </style>

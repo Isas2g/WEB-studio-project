@@ -7,7 +7,7 @@
 
 
 <script>
-import Header from "./components/Header/Header.vue";
+import Header from "./components/Header.vue";
 
 export default {
   components: {
@@ -19,11 +19,39 @@ export default {
 <style lang="scss">
 @import url("./fonts.scss");
 
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "inter";
+}
+h2 {
+  background-image: linear-gradient(225deg, #f70193, #a72cf2);
+  filter: drop-shadow(0 20px 30px #28d8ff33);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-size: 40px;
+  text-align: center;
+}
+h3 {
+  background-image: linear-gradient(225deg, #f70193, #a72cf2);
+  filter: drop-shadow(0 20px 30px #28d8ff33);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-size: 35px;
+  text-align: center;
+}
 .container {
   max-width: 1200px;
   padding: 40px 15px;
   margin: 0 auto;
-  font-family: "inter";
 }
 
 .title {

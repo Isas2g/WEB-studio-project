@@ -1,5 +1,5 @@
 <template>
-  <main class="main about">
+  <main class="main about container">
     <section class="about__team about-team">
       <h2 class="about-team__title">Наша команда</h2>
 
@@ -7,7 +7,11 @@
         <h3 class="direction__title">Менеджеры</h3>
         <ul class="direction__members">
           <li class="direction__member">
-            <img class="direction__member-image" src="" alt="" />
+            <img
+              class="direction__member-image"
+              src="../../assets/images/team/nastya.jpg"
+              alt="Настя"
+            />
             <h4 class="direction__mamber-name">Настя</h4>
             <h5 class="direction__mamber-description">
               А тут описание под заголовком
