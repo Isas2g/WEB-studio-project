@@ -13,13 +13,42 @@
       </section>
     </main>
     <footer class="footer">
-      <section class="footer__block">
+      <section class="footer__body">
         <h1 class="footer__title title">Связаться с нами</h1>
-        <div class="footer__form">
-          <form class="footer__form name">
-            <input type="text" id="name" name="name" />
-          </form>
-        </div>
+        <p class="footer__subtitle subtitle">
+          Оставьте свои контакты и мы свяжемся с вами в ближайшее время
+        </p>
+        <form class="footer__form" id="form">
+          <input
+            class="name"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="ИМЯ"
+          />
+          <input
+            class="phone"
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="ТЕЛЕФОН"
+          />
+          <input
+            class="email"
+            type="text"
+            id="email"
+            name="email"
+            placeholder="EMAIL"
+          />
+          <input
+            class="com"
+            type="text"
+            id="com"
+            name="com"
+            placeholder="КОММЕНТАРИЙ"
+          />
+        </form>
+        <button class="footer__more-btn more-btn" form="form">Связаться</button>
       </section>
     </footer>
   </div>
@@ -37,13 +66,57 @@ export default {};
 }
 
 .footer {
-  &__block {
-    text-align: center;
-    display: flex;
+  &__body {
+    color: white;
+    align-content: end;
     justify-content: center;
-    align-items: center;
   }
   &__form {
+    padding-bottom: 89px;
+    display: grid;
+    grid-row-gap: 60px;
+    grid-column-gap: 80px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "name phone email"
+      "com com com";
+  }
+  .name {
+    grid-area: name;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: white;
+    height: 25px;
+  }
+  .phone {
+    grid-area: phone;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: white;
+    height: 25px;
+  }
+  .email {
+    grid-area: email;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: white;
+    height: 25px;
+  }
+  .com {
+    grid-area: com;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: white;
+    height: 25px;
   }
 }
 </style>
