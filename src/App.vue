@@ -19,10 +19,22 @@ export default {
 <style lang="scss">
 @import url("./fonts.scss");
 
+img {
+  pointer-events: none;
+}
+
 body {
   background-color: #000;
   color: #fff;
   font-family: "inter";
+}
+ul {
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0;
 }
 h2 {
   background-image: linear-gradient(225deg, #f70193, #a72cf2);
@@ -47,6 +59,13 @@ h3 {
   -webkit-box-decoration-break: clone;
   font-size: 35px;
   text-align: center;
+}
+h4 {
+  font-size: 20px;
+}
+h5 {
+  font-size: 16px;
+  font-weight: 300;
 }
 .container {
   max-width: 1200px;

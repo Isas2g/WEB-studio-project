@@ -44,7 +44,6 @@ export default {};
 
   &__nav {
     display: flex;
-    list-style: none;
 
     &-item {
       margin-right: 15px;
