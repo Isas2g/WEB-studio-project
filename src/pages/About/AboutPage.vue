@@ -70,7 +70,7 @@
             :image="AlyonaImage"
           />
           <MemberCard
-            name="Алёнв"
+            name="Алёна"
             description="А тут описание под заголовком"
             :image="AlonkaImage"
           />

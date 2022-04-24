@@ -66,11 +66,23 @@ export default {};
 }
 
 .footer {
+
   &__body {
     color: white;
     align-content: end;
     justify-content: center;
+    padding: 0 150px 0 150px;
+    text-align: center;
   }
+
+  &__subtitle {
+    text-align: center;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
   &__form {
     padding-bottom: 89px;
     display: grid;
