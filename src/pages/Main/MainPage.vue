@@ -20,28 +20,28 @@
         </p>
         <form class="footer__form" id="form">
           <input
-            class="name"
+            class="form__input name"
             type="text"
             id="name"
             name="name"
             placeholder="ИМЯ"
           />
           <input
-            class="phone"
+            class="form__input phone"
             type="text"
             id="phone"
             name="phone"
             placeholder="ТЕЛЕФОН"
           />
           <input
-            class="email"
+            class="form__input email"
             type="text"
             id="email"
             name="email"
             placeholder="EMAIL"
           />
           <input
-            class="com"
+            class="form__input com"
             type="text"
             id="com"
             name="com"
@@ -61,12 +61,18 @@ export default {};
 <style lang="scss">
 .main {
   &__block {
+    max-width: 800px;
     padding: 150px 0 150px 0;
+  }
+  &__title {
+    text-align: start;
+  }
+  &__subtitle {
+    max-width: 440px;
   }
 }
 
 .footer {
-
   &__body {
     color: white;
     align-content: end;
@@ -92,6 +98,9 @@ export default {};
     grid-template-areas:
       "name phone email"
       "com com com";
+  }
+  .form__input {
+    width: 100%;
   }
   .name {
     grid-area: name;

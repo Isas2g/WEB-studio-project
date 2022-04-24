@@ -36,6 +36,18 @@ ul {
   margin-inline-end: 0px;
   padding-inline-start: 0;
 }
+h1 {
+  background-image: linear-gradient(225deg, #f70193, #a72cf2);
+  filter: drop-shadow(0 20px 30px #28d8ff33);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-size: 40px;
+  text-align: center;
+}
 h2 {
   background-image: linear-gradient(225deg, #f70193, #a72cf2);
   filter: drop-shadow(0 20px 30px #28d8ff33);
@@ -73,24 +85,24 @@ h5 {
   margin: 0 auto;
 }
 
-.title {
-  background-image: linear-gradient(225deg, #f70193, #a72cf2);
-  filter: drop-shadow(0 20px 30px #28d8ff33);
-  color: black;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  font-size: 50px;
-  max-width: 670px;
-  margin-bottom: 30px;
-}
+// .title {
+//   background-image: linear-gradient(225deg, #f70193, #a72cf2);
+//   filter: drop-shadow(0 20px 30px #28d8ff33);
+//   color: black;
+//   -webkit-text-fill-color: transparent;
+//   background-clip: text;
+//   -webkit-background-clip: text;
+//   box-decoration-break: clone;
+//   -webkit-box-decoration-break: clone;
+//   font-size: 50px;
+//   max-width: 670px;
+//   margin-bottom: 30px;
+// }
 
-.subtitle {
-  margin-bottom: 30px;
-  max-width: 440px;
-}
+// .subtitle {
+//   margin-bottom: 30px;
+//   max-width: 440px;
+// }
 
 .more-btn {
   background: linear-gradient(95.68deg, #ff0000 -16.11%, #ff008a 54.53%);
