@@ -90,6 +90,7 @@ export default {};
   }
 
   &__form {
+    padding-top: 78px;
     padding-bottom: 89px;
     display: grid;
     grid-row-gap: 60px;
