@@ -79,30 +79,15 @@ h5 {
   font-size: 16px;
   font-weight: 300;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .container {
   max-width: 1200px;
   padding: 40px 15px;
   margin: 0 auto;
 }
-
-// .title {
-//   background-image: linear-gradient(225deg, #f70193, #a72cf2);
-//   filter: drop-shadow(0 20px 30px #28d8ff33);
-//   color: black;
-//   -webkit-text-fill-color: transparent;
-//   background-clip: text;
-//   -webkit-background-clip: text;
-//   box-decoration-break: clone;
-//   -webkit-box-decoration-break: clone;
-//   font-size: 50px;
-//   max-width: 670px;
-//   margin-bottom: 30px;
-// }
-
-// .subtitle {
-//   margin-bottom: 30px;
-//   max-width: 440px;
-// }
 
 .more-btn {
   background: linear-gradient(95.68deg, #ff0000 -16.11%, #ff008a 54.53%);

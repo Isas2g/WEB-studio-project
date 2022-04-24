@@ -37,6 +37,16 @@
           </div>
         </li>
       </ul>
+      <button class="looking__button more-btn" type="button">
+        Подать заявку
+      </button>
+    </section>
+
+    <section class="join-us">
+      <h2 class="join-us__title">
+        Хочешь к нам? Переходи по ссылке и заполняй форму!
+      </h2>
+      <a class="join-us__link" href="#">ссылка</a>
     </section>
   </main>
 </template>
@@ -49,7 +59,30 @@ export default {
 </script>
 
 <style lang="scss">
-.looking__persons {
-  display: flex;
+.looking {
+  &__persons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__person {
+    display: flex;
+    align-items: center;
+  }
+  &__person-info {
+    margin: 0 0 0 30px;
+  }
+  &__button {
+    display: block;
+    margin: 100px auto 0 auto;
+    cursor: pointer;
+  }
+}
+.join-us {
+  margin: 150px 0 0 0;
+  &__link {
+    display: block;
+    text-align: center;
+  }
 }
 </style>
