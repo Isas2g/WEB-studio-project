@@ -1,7 +1,7 @@
 from rest_framework.fields import CharField
 from rest_framework.serializers import ModelSerializer
 
-from users.models import CustomUsers
+from src.users.models import CustomUsers
 
 
 class CustomUserSerializer(ModelSerializer):

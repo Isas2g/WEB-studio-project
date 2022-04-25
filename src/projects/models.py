@@ -1,5 +1,6 @@
 from django.db import models
-from users.models import CustomUsers
+from src.users.models import CustomUsers
+
 
 class Projects(models.Model):
     title = models.TextField()
@@ -7,7 +8,9 @@ class Projects(models.Model):
     closed_at = models.DateTimeField()
     description = models.TextField()
     icon_url = models.TextField()
-    creator_id = models.ManyToManyField(CustomUsers, verbose_name="создатель", related_name="project_creator")
+    creator_id = models.ManyToManyField(CustomUsers,
+                                        verbose_name="создатель",
+                                        related_name="project_creator")
 
     class Meta:
         db_table = 'projects'
@@ -29,7 +32,6 @@ class ProjectParticipants(models.Model):
         db_table = 'project_participant'
         verbose_name = 'Участник проекта'
         verbose_name_plural = 'Участники проекта'
-
 
 
 class Postions(models.Model):
