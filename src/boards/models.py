@@ -1,11 +1,11 @@
 from django.db import models
 from src.projects.models import Projects
-from src.users.models import CustomUsers
+from src.users.models import User
 
 
 class Boards(models.Model):
     title = models.TextField()
-    project_id = models.ForeignKey(Projects, on_delete=models.CASCADE)
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
     created_at = models.DateTimeField()
     ended_at = models.DateTimeField()
 
@@ -28,13 +28,13 @@ class TaskTags(models.Model):
 class Tasks(models.Model):
     title = models.TextField()
     description = models.TextField()
-    board_id = models.ForeignKey(Boards, on_delete=models.CASCADE)
+    board = models.ForeignKey(Boards, on_delete=models.CASCADE)
     created_at = models.DateTimeField()
     is_done = models.BooleanField()
-    executor_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
+    executor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='executor')
     done_at = models.DateTimeField()
-    author_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
-    tag_id = models.ForeignKey(TaskTags, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
+    tag = models.ForeignKey(TaskTags, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'tasks'
@@ -43,9 +43,9 @@ class Tasks(models.Model):
 
 
 class BoardColumns(models.Model):
-    board_id = models.ForeignKey(Boards, on_delete=models.CASCADE)
+    board = models.ForeignKey(Boards, on_delete=models.CASCADE)
     title = models.TextField()
-    creator_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'board_columns'
@@ -54,9 +54,9 @@ class BoardColumns(models.Model):
 
 
 class BoardTasks(models.Model):
-    board_id = models.ForeignKey(Boards, on_delete=models.CASCADE)
-    task_id = models.ForeignKey(Tasks, on_delete=models.CASCADE)
-    column_id = models.ForeignKey(BoardColumns, on_delete=models.CASCADE)
+    board = models.ForeignKey(Boards, on_delete=models.CASCADE)
+    task = models.ForeignKey(Tasks, on_delete=models.CASCADE)
+    column = models.ForeignKey(BoardColumns, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'board_tasks'
@@ -67,7 +67,7 @@ class BoardTasks(models.Model):
 class TaskComment(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField()
-    author_id = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     updated_at = models.DateTimeField()
     is_reply = models.BooleanField()
     # reply_comment_id = models.ForeignKey(TaskComment, on_delete=models.CASCADE)

@@ -1,12 +1,13 @@
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.core.validators import FileExtensionValidator
-from django.db.models import Model, ImageField, EmailField, DateTimeField
 from django.db.models import CharField, ForeignKey, CASCADE
-
-from .managers import CustomUserManager
+from django.db.models import Model, ImageField, EmailField, DateTimeField
 
 from src.base.services import get_path_upload_avatar, validate_size_image
+from .managers import CustomUserManager
 
-
+AbstractUser
 class Role(Model):
     title = CharField('название',
                       max_length=64,
@@ -22,7 +23,7 @@ class Role(Model):
         return self.title
 
 
-class CustomUsers(Model):
+class User(AbstractBaseUser, PermissionsMixin):
     username = CharField("ник",
                          max_length=150,
                          unique=True,
@@ -50,12 +51,18 @@ class CustomUsers(Model):
                         ]
                         )
 
-    REQUIRED_FIELDS = ('username',)
+    EMAIL_FIELD = "email"
+    USERNAME_FIELD = "username"
+    REQUIRED_FIELDS = ["email"]
 
     objects = CustomUserManager()
 
     @property
     def is_authenticated(self):
+        return True
+
+    @property
+    def is_anonymous(self):
         return True
 
     def __str__(self):
@@ -67,8 +74,8 @@ class CustomUsers(Model):
         verbose_name_plural = 'Пользователи'
 
 
-class UserContacts(Model):
-    user = ForeignKey(CustomUsers,
+class UserContact(Model):
+    user = ForeignKey(User,
                       on_delete=CASCADE
                       )
 
