@@ -67,7 +67,7 @@ class UserContacts(Model):
     )
 
     class Meta:
-        db_table = 'users_human_contacts'
+        db_table = 'users_contacts'
         verbose_name = 'Контакт Пользователя'
         verbose_name_plural = 'Контакты Пользователей'
 
