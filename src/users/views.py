@@ -1,7 +1,7 @@
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView
 
-from users.models import *
-from users.serializers import CustomUserSerializer
+from src.users.models import *
+from src.users.serializers import CustomUserSerializer
 
 
 class UsersListCreateView(ListAPIView, CreateAPIView):

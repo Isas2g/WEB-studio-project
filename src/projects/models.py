@@ -1,5 +1,6 @@
 from django.db import models
-from users.models import CustomUsers
+from src.users.models import CustomUsers
+
 
 
 class Projects(models.Model):
@@ -8,7 +9,9 @@ class Projects(models.Model):
     closed_at = models.DateTimeField()
     description = models.TextField()
     icon_url = models.TextField()
-    creator_id = models.ManyToManyField(CustomUsers, verbose_name="создатель", related_name="project_creator")
+    creator_id = models.ManyToManyField(CustomUsers,
+                                        verbose_name="создатель",
+                                        related_name="project_creator")
 
     class Meta:
         db_table = 'projects'
