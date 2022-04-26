@@ -11,7 +11,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     env_file:
-      - .env
+      - server/.env
 
   server:
     build: ./
@@ -26,7 +26,7 @@ services:
     networks:
       - default
     env_file:
-      - ./.env
+      - server/.env
     restart: always
     depends_on:
       - db
