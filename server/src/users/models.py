@@ -1,18 +1,21 @@
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.core.validators import FileExtensionValidator
-from django.db.models import CharField, ForeignKey, CASCADE, BooleanField
+from django.db.models import CharField, ForeignKey, CASCADE, BooleanField, IntegerField
 from django.db.models import Model, ImageField, EmailField, DateTimeField
 
 from src.base.services import get_path_upload_avatar, validate_size_image
 from .managers import CustomUserManager
 
+
 # AbstractUser
+
 class Role(Model):
     title = CharField('название',
                       max_length=64,
-                      unique=True
-                      )
+                      unique=True,
+                      default='работяга')
+    access_level = IntegerField('уровень доступа', default=500)
 
     class Meta:
         db_table = 'users_role'
@@ -50,6 +53,11 @@ class User(AbstractBaseUser, PermissionsMixin):
                             validate_size_image
                         ]
                         )
+    disabled_at = DateTimeField("время заморозки",
+                                blank=True,
+                                null=True,
+                                )
+
 
     is_staff = BooleanField(
         "staff status",
@@ -93,7 +101,6 @@ class UserContact(Model):
                         max_length=64,
                         unique=True,
                         )
-
 
     class Meta:
         db_table = 'users_contacts'
