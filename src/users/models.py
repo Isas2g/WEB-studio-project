@@ -1,13 +1,13 @@
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.core.validators import FileExtensionValidator
-from django.db.models import CharField, ForeignKey, CASCADE
+from django.db.models import CharField, ForeignKey, CASCADE, BooleanField
 from django.db.models import Model, ImageField, EmailField, DateTimeField
 
 from src.base.services import get_path_upload_avatar, validate_size_image
 from .managers import CustomUserManager
 
-AbstractUser
+# AbstractUser
 class Role(Model):
     title = CharField('название',
                       max_length=64,
@@ -50,6 +50,11 @@ class User(AbstractBaseUser, PermissionsMixin):
                             validate_size_image
                         ]
                         )
+
+    is_staff = BooleanField(
+        "staff status",
+        default=False,
+    )
 
     EMAIL_FIELD = "email"
     USERNAME_FIELD = "username"
