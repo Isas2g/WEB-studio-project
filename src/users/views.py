@@ -6,12 +6,12 @@ from src.users.serializers import CustomUserSerializer
 
 class UsersListCreateView(ListAPIView, CreateAPIView):
     serializer_class = CustomUserSerializer
-    queryset = CustomUsers.objects.all()
+    queryset = User.objects.all()
 
 
 class UsersRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     serializer_class = CustomUserSerializer
-    queryset = CustomUsers.objects.all()
+    queryset = User.objects.all()
 
 
 class UsersProjectListView(RetrieveUpdateDestroyAPIView):
