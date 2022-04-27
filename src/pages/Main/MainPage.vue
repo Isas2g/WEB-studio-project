@@ -14,16 +14,21 @@
     </main>
     <feedback class="feedback">
       <section class="feedback__body">
-        <h1 class="feedback__title title">Отзывы</h1>
-        <p class="feedback__subtitle subtitle">Почитайте отзывы...</p>
-        <img
-            class="feedback__user-icon"
-            src="../../assets/images/user-icon.png"
-            alt="Юзер"
-        />
-        <p class="feedback__text name">Александр</p>
-        <p class="feedback__text text">Быстро и качественно сделали сайт! Рекомендую!</p>
-        <button class="feedback__more-btn more-btn">Все отзывы</button>
+        <section class="feedback__first-column">
+          <h1 class="feedback__title title">Отзывы</h1>
+          <p class="feedback__subtitle subtitle">Почитайте отзывы...</p>
+          <button class="feedback__more-btn more-btn">Все отзывы</button>
+        </section>
+        <section class="feedback__space"></section>
+        <section class="feedback__second-column">
+          <img
+              class="feedback__user-icon"
+              src="../../assets/images/user-icon.png"
+              alt="Юзер"
+          />
+          <p class="feedback__text name">Александр</p>
+          <p class="feedback__text text">Быстро и качественно сделали сайт! Рекомендую!</p>
+        </section>
       </section>
     </feedback>
     <footer class="footer">
@@ -88,23 +93,36 @@ export default {};
 
 .feedback {
   &__body {
-    display: grid;
-    grid-row-gap: 30px;
-    grid-column-gap: 80px;
-    padding: 0 150px 300px 150px;
-    //grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-      "title titile . user"
-      "subtitle subtitle . user "
-      ". . . text"
-  "btn . . .";
+    display: flex;
+    flex-direction: row;
+    padding: 0 150px 0 150px;
   }
 
-  &__title {grid-area: title; text-align: left;}
-  &__subtitle {grid-area: subtitle;}
-  &__user-icon {grid-area: user; justify-content: right;}
-  &__text {grid-area: text;}
-  &__more-btn {grid-area: btn;}
+  .name {
+    font-weight: bold;
+  }
+
+  &__space {
+    display: flex;
+  }
+  
+  &__first-column {
+    display: flex;
+    flex-direction: column;
+    //flex-basis: 166px;
+    align-items: flex-start;
+  }
+
+  &__second-column {
+    display: flex;
+    //flex-basis: 402px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__user-icon {
+    max-width: 146px;
+  }
 }
 
 .footer {
