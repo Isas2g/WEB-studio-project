@@ -33,9 +33,9 @@ class Positions(models.Model):
 
 
 class ProjectParticipants(models.Model):
-    project_id = models.ForeignKey(Projects, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    position_id = models.ForeignKey(Positions, on_delete=models.CASCADE)
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    position = models.ForeignKey(Positions, on_delete=models.CASCADE, null=True, blank=True)
     invited_at = models.DateTimeField()
     kicked_at = models.DateTimeField()
 

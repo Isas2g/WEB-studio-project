@@ -6,12 +6,7 @@ from .serializers import *
 from .models import *
 
 
-class BoardsView(APIView):
-
-    def get(self, request, pk):
-        board = Boards.objects.get(id=pk)
-        serializer = BoardsDetailSerializer(board)
-        return Response(serializer.data)
+class BoardsCreateView(APIView):
 
     def post(self, request):
         board = BoardsSerializer(data=request.data)
@@ -20,6 +15,14 @@ class BoardsView(APIView):
             return Response(status=201)
         else:
             return Response(status=400)
+
+
+class BoardsView(APIView):
+
+    def get(self, request, pk):
+        board = Boards.objects.get(id=pk)
+        serializer = BoardsDetailSerializer(board)
+        return Response(serializer.data)
 
     def patch(self, request, pk):
         board = Boards.objects.get(id=pk)
@@ -36,12 +39,7 @@ class BoardsView(APIView):
         return Response(status=201)
 
 
-class TasksView(APIView):
-
-    def get(self, request, pk):
-        task = Tasks.objects.get(id=pk)
-        serializer = TasksDetailSerializer(task)
-        return Response(serializer.data)
+class TasksCreateView(APIView):
 
     def post(self, request):
         task = TasksSerializer(data=request.data)
@@ -50,6 +48,14 @@ class TasksView(APIView):
             return Response(status=201)
         else:
             return Response(status=400)
+
+
+class TasksView(APIView):
+
+    def get(self, request, pk):
+        task = Tasks.objects.get(id=pk)
+        serializer = TasksDetailSerializer(task)
+        return Response(serializer.data)
 
     def patch(self, request, pk):
         task = Tasks.objects.get(id=pk)

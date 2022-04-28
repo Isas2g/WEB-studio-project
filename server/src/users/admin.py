@@ -4,13 +4,15 @@ from .models import *
 
 @admin.register(User)
 class CustomUsersAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username', 'email', 'role', 'join_date', 'disabled_at')
+    fields = ['role']
+    list_display = ('id', 'username', 'email', 'join_date', 'disabled_at')
     list_display_links = ('username',)
 
 
 @admin.register(UserContact)
 class UserContactsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'title', 'contact')
+    fields = ['user']
+    list_display = ('id', 'title', 'contact')
     list_display_links = ('id',)
 
 

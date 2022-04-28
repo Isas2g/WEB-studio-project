@@ -70,7 +70,7 @@ class TaskComment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     updated_at = models.DateTimeField()
     is_reply = models.BooleanField()
-    reply_comment_id = models.ForeignKey('TaskComment', on_delete=models.CASCADE)
+    reply_comment = models.ForeignKey('TaskComment', on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta:
         db_table = 'task_comment'

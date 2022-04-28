@@ -6,12 +6,7 @@ from .serializers import *
 from .models import *
 
 
-class ProjectsView(APIView):
-    def get(self, request, pk):
-        project = Projects.objects.get(id=pk)
-        serializer = ProjectsDetailSerializer(project)
-        return Response(serializer.data)
-
+class ProjectsListCreateView(APIView):
     def post(self, request):
         project = ProjectsSerializer(data=request.data)
         if project.is_valid():
@@ -19,6 +14,18 @@ class ProjectsView(APIView):
             return Response(status=201)
         else:
             return Response(status=400)
+
+    def get(self, request):
+        project = Projects.objects
+        serializer = ProjectsSerializer(project, many=True)
+        return Response(serializer.data)
+
+
+class ProjectsView(APIView):
+    def get(self, request, pk):
+        project = Projects.objects.get(id=pk)
+        serializer = ProjectsDetailSerializer(project)
+        return Response(serializer.data)
 
     def patch(self, request, pk):
         project = Projects.objects.get(id=pk)
@@ -35,23 +42,30 @@ class ProjectsView(APIView):
         return Response(status=201)
 
 
-class PositionsView(APIView):
-    def get(self, request, pk):
-        board = Positions.objects.get(id=pk)
-        serializer = PositionsDetailSerializer(board)
+class PositionsListCreateView(APIView):
+    def get(self, request):
+        position = Positions.objects
+        serializer = PositionsSerializer(position, many=True)
         return Response(serializer.data)
 
     def post(self, request):
-        board = PositionsSerializer(data=request.data)
-        if board.is_valid():
-            board.save()
+        position = PositionsSerializer(data=request.data)
+        if position.is_valid():
+            position.save()
             return Response(status=201)
         else:
             return Response(status=400)
 
+
+class PositionsView(APIView):
+    def get(self, request, pk):
+        position = Positions.objects.get(id=pk)
+        serializer = PositionsDetailSerializer(position)
+        return Response(serializer.data)
+
     def patch(self, request, pk):
-        board = Positions.objects.get(id=pk)
-        serializer = PositionsSerializer(board, data=request.data)
+        position = Positions.objects.get(id=pk)
+        serializer = PositionsSerializer(position, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(PositionsDetailSerializer(Positions.objects.get(id=pk)).data)
@@ -59,28 +73,31 @@ class PositionsView(APIView):
             return Response(status=400)
 
     def delete(self, request, pk):
-        board = Positions.objects.get(id=pk)
-        board.delete()
+        position = Positions.objects.get(id=pk)
+        position.delete()
         return Response(status=201)
 
 
-class ProjectParticipantsView(APIView):
-    def get(self, request, pk):
-        board = ProjectParticipants.objects.get(id=pk)
-        serializer = ProjectParticipantsDetailSerializer(board)
-        return Response(serializer.data)
+class ProjectParticipantsCreateView(APIView):
 
     def post(self, request):
-        board = ProjectParticipantsSerializer(data=request.data)
-        if board.is_valid():
-            board.save()
+        project_participants = ProjectParticipantsSerializer(data=request.data)
+        if project_participants.is_valid():
+            project_participants.save()
             return Response(status=201)
         else:
             return Response(status=400)
 
+
+class ProjectParticipantsView(APIView):
+    def get(self, request, pk):
+        project_participants = ProjectParticipants.objects.get(id=pk)
+        serializer = ProjectParticipantsDetailSerializer(project_participants)
+        return Response(serializer.data)
+
     def patch(self, request, pk):
-        board = ProjectParticipants.objects.get(id=pk)
-        serializer = ProjectParticipantsSerializer(board, data=request.data)
+        project_participants = ProjectParticipants.objects.get(id=pk)
+        serializer = ProjectParticipantsSerializer(project_participants, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(ProjectParticipants(ProjectParticipants.objects.get(id=pk)).data)
@@ -88,6 +105,6 @@ class ProjectParticipantsView(APIView):
             return Response(status=400)
 
     def delete(self, request, pk):
-        board = ProjectParticipants.objects.get(id=pk)
-        board.delete()
+        project_participants = ProjectParticipants.objects.get(id=pk)
+        project_participants.delete()
         return Response(status=201)

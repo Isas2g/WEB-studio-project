@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from .models import *
+from src.users.serializers import UserSerializer
 
 
 class ProjectsSerializer(serializers.ModelSerializer):
@@ -10,7 +11,7 @@ class ProjectsSerializer(serializers.ModelSerializer):
 
 
 class ProjectsDetailSerializer(serializers.ModelSerializer):
-    # creator_id = CustomUsersDetailSerializer()
+    creator = UserSerializer()
 
     class Meta:
         model = Projects
@@ -24,7 +25,7 @@ class PositionsSerializer(serializers.ModelSerializer):
 
 
 class PositionsDetailSerializer(serializers.ModelSerializer):
-    project_id = ProjectsDetailSerializer()
+    project = ProjectsDetailSerializer()
 
     class Meta:
         model = Positions
@@ -38,9 +39,9 @@ class ProjectParticipantsSerializer(serializers.ModelSerializer):
 
 
 class ProjectParticipantsDetailSerializer(serializers.ModelSerializer):
-    project_id = ProjectsDetailSerializer()
-    # user_id = CustomUsersDetailSerializer()
-    position_id = PositionsDetailSerializer()
+    project = ProjectsDetailSerializer()
+    user = UserSerializer()
+    position = PositionsDetailSerializer()
 
     class Meta:
         model = ProjectParticipants

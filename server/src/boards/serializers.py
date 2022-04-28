@@ -1,6 +1,8 @@
 from rest_framework import serializers
 
 from .models import *
+from src.projects.serializers import ProjectsDetailSerializer
+from src.users.serializers import UserSerializer
 
 
 class BoardsSerializer(serializers.ModelSerializer):
@@ -10,7 +12,7 @@ class BoardsSerializer(serializers.ModelSerializer):
 
 
 class BoardsDetailSerializer(serializers.ModelSerializer):
-    # project_id = ProjectsDetailSerializer()
+    project = ProjectsDetailSerializer()
 
     class Meta:
         model = Boards
@@ -23,11 +25,17 @@ class TasksSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class TaskTagsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TaskTags
+        fields = '__all__'
+
+
 class TasksDetailSerializer(serializers.ModelSerializer):
-    board_id = BoardsDetailSerializer()
-    # executor_id = ExecutorDetailSerializer()
-    # author_id = AuthorDetailSerializer()
-    # tag_id = TagDetailSerializer()
+    board = BoardsDetailSerializer()
+    executor = UserSerializer()
+    author = UserSerializer()
+    tag = TaskTagsSerializer()
 
     class Meta:
         model = Tasks
@@ -35,39 +43,30 @@ class TasksDetailSerializer(serializers.ModelSerializer):
 
 
 class BoardColumnsSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = BoardColumns
         fields = '__all__'
 
 
 class BoardColumnsDetailSerializer(serializers.ModelSerializer):
-    board_id = BoardsDetailSerializer()
-    # creator_id = CustomUsersDetailSerializer()
+    board = BoardsDetailSerializer()
+    creator = UserSerializer()
 
     class Meta:
         model = BoardColumns
         fields = '__all__'
 
 
-class TaskTagsSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = TaskTags
-        fields = '__all__'
-
-
 class BoardTasksSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = BoardTasks
         fields = '__all__'
 
 
 class BoardTasksDetailSerializer(serializers.ModelSerializer):
-    board_id = BoardsDetailSerializer()
-    task_id = TasksDetailSerializer()
-    column_id = BoardColumnsDetailSerializer()
+    board = BoardsDetailSerializer()
+    task = TasksDetailSerializer()
+    column = BoardColumnsDetailSerializer()
 
     class Meta:
         model = BoardTasks
@@ -81,8 +80,8 @@ class TaskCommentSerializer(serializers.ModelSerializer):
 
 
 class TaskCommentDetailSerializer(serializers.ModelSerializer):
-    # author_id = CustomUsersDetailSerializer()
-    # reply_comment_id =
+    author = UserSerializer()
+    # reply_comment =
 
     class Meta:
         model = TaskComment
