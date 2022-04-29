@@ -95,27 +95,22 @@ export default {};
   &__body {
     display: flex;
     flex-direction: row;
-    padding: 0 150px 0 150px;
+    justify-content: space-between;
+    padding: 0 150px 330px 150px;
   }
 
   .name {
     font-weight: bold;
   }
 
-  &__space {
-    display: flex;
-  }
-  
   &__first-column {
     display: flex;
     flex-direction: column;
-    //flex-basis: 166px;
     align-items: flex-start;
   }
 
   &__second-column {
     display: flex;
-    //flex-basis: 402px;
     flex-direction: column;
     align-items: center;
   }
