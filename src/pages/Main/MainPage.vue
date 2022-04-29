@@ -12,6 +12,18 @@
         <button class="main__more-btn more-btn">Подробнее</button>
       </section>
     </main>
+    <projects class="projects">
+      <section class="projects__body">
+        <h1 class="projects__title">Наши проекты</h1>
+        <img
+            class="projects__image"
+            :src="SmoothieFeed"
+            alt="SmoothieFeed"
+        />
+        <h3 class="projects__project-title">SmoothieFeed</h3>
+        <button class="projects__button more-btn">Подробнее</button>
+      </section>
+    </projects>
     <feedback class="feedback">
       <section class="feedback__body">
         <section class="feedback__first-column">
@@ -74,7 +86,14 @@
 </template>
 
 <script>
-export default {};
+import SmoothieFeed from "@/assets/images/smoothie-feed.jpg";
+
+export default {
+  data: () => ({
+    SmoothieFeed: SmoothieFeed,
+  })
+};
+
 </script>
 
 <style lang="scss">
@@ -88,6 +107,31 @@ export default {};
   }
   &__subtitle {
     max-width: 440px;
+  }
+}
+
+.projects {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 330px;
+    align-items: center;
+  }
+
+  .project-title {
+    color: white;
+    font-size: 35px;
+  }
+
+  &__image {
+    max-width: 311px;
+    border-radius: 30px;
+    max-height: 365px;
+  }
+
+  &__button {
+    display: block;
+    margin: 0 auto;
   }
 }
 
