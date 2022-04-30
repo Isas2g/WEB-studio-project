@@ -12,6 +12,11 @@
         <button class="main__more-btn more-btn">Подробнее</button>
       </section>
     </main>
+    <team class="team">
+      <section class="team__body">
+        <h1 class="team__title">Наша команда</h1>
+      </section>
+    </team>
     <projects class="projects">
       <section class="projects__body">
         <h1 class="projects__title">Наши проекты</h1>
