@@ -1,6 +1,10 @@
 <template>
   <header class="header">
-    <div class="header__logo">Web-Studio</div>
+    <img
+        class="header__logo"
+        :src="logoWeb"
+        alt="Logo"
+    />
     <ul class="header__nav">
       <li class="header__nav-item current">
         <router-link class="header__nav-link" to="/">Главная</router-link>
@@ -24,7 +28,12 @@
 </template>
 
 <script>
-export default {};
+import logoWeb from "@/assets/images/logo-web.png"
+export default {
+  data: () => ({
+    logoWeb: logoWeb,
+  })
+};
 </script>
 
 <style lang="scss" scoped>
@@ -36,6 +45,8 @@ export default {};
 
   .logo {
     font-size: 18px;
+    max-width: 80px;
+    padding-right: 150px;
   }
 
   .current {

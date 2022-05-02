@@ -162,10 +162,21 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 300px;
+    align-items: center;
   }
 
   &__user-icon {
     max-width: 146px;
+  }
+
+  &__subtitle {
+    margin-top: 0px;
+    margin-bottom: 80px;
+  }
+
+  &__more-btn {
+    margin-bottom: 5px;
   }
 }
 
