@@ -109,9 +109,11 @@ export default {
   }
   &__title {
     text-align: start;
+    margin-bottom: 20px;
   }
   &__subtitle {
     max-width: 440px;
+    margin-bottom: 73px;
   }
 }
 
