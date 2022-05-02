@@ -46,7 +46,6 @@ export default {
   .logo {
     font-size: 18px;
     max-width: 80px;
-    padding-right: 150px;
   }
 
   .current {

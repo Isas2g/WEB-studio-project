@@ -34,7 +34,7 @@
         <section class="feedback__first-column">
           <h1 class="feedback__title title">Отзывы</h1>
           <p class="feedback__subtitle subtitle">Почитайте отзывы...</p>
-          <button class="feedback__more-btn more-btn">Все отзывы</button>
+          <button class="feedback__more-btn more-btn"><router-link class="feedback__allFeedbackLink" to="/feedback">Все отзывы</router-link></button>
         </section>
         <section class="feedback__space"></section>
         <section class="feedback__second-column">
@@ -105,7 +105,7 @@ export default {
 .main {
   &__block {
     max-width: 800px;
-    padding: 150px 0 150px 0;
+    padding: 0 0 150px 0; //зачем паддинг был 150 пикселей сверху?
   }
   &__title {
     text-align: start;

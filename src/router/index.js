@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import MainPage from "../pages/Main/MainPage.vue";
 import AboutPage from "../pages/About/AboutPage.vue";
 import JoinPage from "../pages/Join/JoinPage.vue";
+import FeedbackPage from "@/pages/Main/FeedbackPage";
 
 
 Vue.use(VueRouter)
@@ -22,6 +23,11 @@ const routes = [
         path: '/join',
         name: 'JoinPage',
         component: JoinPage
+    },
+    {
+        path: '/feedback',
+        name: 'FeedbackPage',
+        component: FeedbackPage
     },
 ]
 
