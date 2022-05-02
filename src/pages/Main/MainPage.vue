@@ -40,8 +40,8 @@
         <section class="feedback__second-column">
           <img
               class="feedback__user-icon"
-              src="../../assets/images/user-icon.png"
-              alt="Юзер"
+              :src="UserIcon"
+              alt="UserIcon"
           />
           <p class="feedback__text name">Александр</p>
           <p class="feedback__text text">Быстро и качественно сделали сайт! Рекомендую!</p>
@@ -92,10 +92,12 @@
 
 <script>
 import SmoothieFeed from "@/assets/images/smoothie-feed.jpg";
+import UserIcon from "@/assets/images/user-icon.png";
 
 export default {
   data: () => ({
     SmoothieFeed: SmoothieFeed,
+    UserIcon: UserIcon,
   })
 };
 
@@ -173,8 +175,8 @@ export default {
   }
 
   &__subtitle {
-    margin-top: 0px;
-    margin-bottom: 80px;
+    margin-top: 20px;
+    margin-bottom: 125px;
   }
 
   &__more-btn {

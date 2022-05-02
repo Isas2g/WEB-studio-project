@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import MainPage from "../pages/Main/MainPage.vue";
 import AboutPage from "../pages/About/AboutPage.vue";
 import JoinPage from "../pages/Join/JoinPage.vue";
-import FeedbackPage from "@/pages/Main/FeedbackPage";
+import FeedbackPage from "@/pages/Feedback/FeedbackPage";
 
 
 Vue.use(VueRouter)
