@@ -36,6 +36,14 @@ ul {
   margin-inline-end: 0px;
   padding-inline-start: 0;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0 0;
+}
 h1 {
   background-image: linear-gradient(225deg, #f70193, #a72cf2);
   filter: drop-shadow(0 20px 30px #28d8ff33);
