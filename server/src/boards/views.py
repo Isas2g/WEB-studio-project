@@ -7,7 +7,6 @@ from .models import *
 
 
 class BoardsCreateView(APIView):
-
     def post(self, request):
         board = BoardsSerializer(data=request.data)
         if board.is_valid():
@@ -18,7 +17,6 @@ class BoardsCreateView(APIView):
 
 
 class BoardsView(APIView):
-
     def get(self, request, pk):
         board = Boards.objects.get(id=pk)
         serializer = BoardsDetailSerializer(board)
@@ -40,7 +38,6 @@ class BoardsView(APIView):
 
 
 class TasksCreateView(APIView):
-
     def post(self, request):
         task = TasksSerializer(data=request.data)
         if task.is_valid():
@@ -51,7 +48,6 @@ class TasksCreateView(APIView):
 
 
 class TasksView(APIView):
-
     def get(self, request, pk):
         task = Tasks.objects.get(id=pk)
         serializer = TasksDetailSerializer(task)
@@ -72,13 +68,7 @@ class TasksView(APIView):
         return Response(status=201)
 
 
-class BoardColumnsView(APIView):
-
-    def get(self, request, pk):
-        board_columns = BoardColumns.objects.get(id=pk)
-        serializer = BoardColumnsDetailSerializer(board_columns)
-        return Response(serializer.data)
-
+class BoardColumnsCreateView(APIView):
     def post(self, request):
         board_columns = BoardColumnsSerializer(data=request.data)
         if board_columns.is_valid():
@@ -86,6 +76,13 @@ class BoardColumnsView(APIView):
             return Response(status=201)
         else:
             return Response(status=400)
+
+
+class BoardColumnsView(APIView):
+    def get(self, request, pk):
+        board_columns = BoardColumns.objects.get(id=pk)
+        serializer = BoardColumnsDetailSerializer(board_columns)
+        return Response(serializer.data)
 
     def patch(self, request, pk):
         board_columns = BoardColumns.objects.get(id=pk)
@@ -102,13 +99,7 @@ class BoardColumnsView(APIView):
         return Response(status=201)
 
 
-class TaskTagsView(APIView):
-
-    def get(self, request, pk):
-        task_tags = TaskTags.objects.get(id=pk)
-        serializer = TaskTagsSerializer(task_tags)
-        return Response(serializer.data)
-
+class TaskTagsCreateView(APIView):
     def post(self, request):
         task_tags = TaskTagsSerializer(data=request.data)
         if task_tags.is_valid():
@@ -116,6 +107,13 @@ class TaskTagsView(APIView):
             return Response(status=201)
         else:
             return Response(status=400)
+
+
+class TaskTagsView(APIView):
+    def get(self, request, pk):
+        task_tags = TaskTags.objects.get(id=pk)
+        serializer = TaskTagsSerializer(task_tags)
+        return Response(serializer.data)
 
     def patch(self, request, pk):
         task_tags = TaskTags.objects.get(id=pk)
@@ -132,13 +130,7 @@ class TaskTagsView(APIView):
         return Response(status=201)
 
 
-class BoardTasksView(APIView):
-
-    def get(self, request, pk):
-        board_task = BoardTasks.objects.get(id=pk)
-        serializer = BoardTasksDetailSerializer(board_task)
-        return Response(serializer.data)
-
+class BoardTasksCreateView(APIView):
     def post(self, request):
         board_task = BoardTasksSerializer(data=request.data)
         if board_task.is_valid():
@@ -146,6 +138,13 @@ class BoardTasksView(APIView):
             return Response(status=201)
         else:
             return Response(status=400)
+
+
+class BoardTasksView(APIView):
+    def get(self, request, pk):
+        board_task = BoardTasks.objects.get(id=pk)
+        serializer = BoardTasksDetailSerializer(board_task)
+        return Response(serializer.data)
 
     def patch(self, request, pk):
         board_task = BoardTasks.objects.get(id=pk)
@@ -162,13 +161,7 @@ class BoardTasksView(APIView):
         return Response(status=201)
 
 
-class TaskCommentView(APIView):
-
-    def get(self, request, pk):
-        task_comment = TaskComment.objects.get(id=pk)
-        serializer = TaskCommentDetailSerializer(task_comment)
-        return Response(serializer.data)
-
+class TaskCommentCreateView(APIView):
     def post(self, request):
         task_comment = TaskCommentSerializer(data=request.data)
         if task_comment.is_valid():
@@ -176,6 +169,13 @@ class TaskCommentView(APIView):
             return Response(status=201)
         else:
             return Response(status=400)
+
+
+class TaskCommentView(APIView):
+    def get(self, request, pk):
+        task_comment = TaskComment.objects.get(id=pk)
+        serializer = TaskCommentDetailSerializer(task_comment)
+        return Response(serializer.data)
 
     def patch(self, request, pk):
         task_comment = TaskComment.objects.get(id=pk)
