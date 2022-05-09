@@ -12,22 +12,27 @@
         <button class="main__more-btn more-btn">Подробнее</button>
       </section>
     </main>
-    <team class="team">
-      <section class="team__body">
-        <h1 class="team__title">Наша команда</h1>
-      </section>
-    </team>
+    <carousel-team/>
     <projects class="projects">
-      <section class="projects__body">
-        <h1 class="projects__title">Наши проекты</h1>
-        <img
-            class="projects__image"
-            :src="SmoothieFeed"
-            alt="SmoothieFeed"
-        />
-        <h3 class="projects__project-title">SmoothieFeed</h3>
-        <button class="projects__button more-btn">Подробнее</button>
-      </section>
+      <container class="projects__container">
+        <section class="projects__body">
+          <h1 class="projects__title">Наши проекты</h1>
+          <img
+              class="projects__image"
+              :src="SmoothieFeed"
+              alt="SmoothieFeed"
+          />
+          <h3 class="projects__project-title">SmoothieFeed</h3>
+          <button class="projects__button more-btn">Подробнее</button>
+        </section>
+        <section class="projects__button">
+          <img
+              class="projects__arrow"
+              :src="BtnArr"
+              alt="BtnArr"
+          />
+        </section>
+      </container>
     </projects>
     <feedback class="feedback">
       <section class="feedback__body">
@@ -93,11 +98,15 @@
 <script>
 import SmoothieFeed from "@/assets/images/smoothie-feed.jpg";
 import UserIcon from "@/assets/images/user-icon.png";
+import BtnArr from "@/assets/images/btn-strelka.png";
+import CarouselTeam from "@/components/CarouselTeam";
 
 export default {
+  components: {CarouselTeam},
   data: () => ({
     SmoothieFeed: SmoothieFeed,
     UserIcon: UserIcon,
+    BtnArr: BtnArr,
   })
 };
 
@@ -120,14 +129,32 @@ export default {
 }
 
 .projects {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 480px;
+    margin-left: 35%;
+  }
   &__body {
     display: flex;
     flex-direction: column;
     padding-bottom: 330px;
     align-items: center;
   }
+  &__arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80%;
+  }
 
-  .project-title {
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__project-title {
     color: white;
     font-size: 35px;
   }
@@ -136,11 +163,12 @@ export default {
     max-width: 311px;
     border-radius: 30px;
     max-height: 365px;
+    margin-bottom: 30px;
   }
 
   &__button {
     display: block;
-    margin: 0 auto;
+    margin-top: 50px;
   }
 }
 
