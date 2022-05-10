@@ -4,6 +4,7 @@ import MainPage from "../pages/Main/MainPage.vue";
 import AboutPage from "../pages/About/AboutPage.vue";
 import JoinPage from "../pages/Join/JoinPage.vue";
 import FeedbackPage from "@/pages/Feedback/FeedbackPage";
+import OurProjects from "@/pages/Projects/OurProjects";
 
 
 Vue.use(VueRouter)
@@ -29,6 +30,11 @@ const routes = [
         name: 'FeedbackPage',
         component: FeedbackPage
     },
+    {
+        path: '/ourprojects',
+        name: 'OurProjects',
+        component: OurProjects
+    }
 ]
 
 const router = new VueRouter({

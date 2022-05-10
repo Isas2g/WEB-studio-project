@@ -25,7 +25,7 @@
               alt="SmoothieFeed"
           />
           <h3 class="projects__project-title">SmoothieFeed</h3>
-          <button class="projects__button more-btn">Подробнее</button>
+          <button class="projects__button more-btn"><router-link class="projects__allOurProjectsLink" to="/ourprojects">Подробнее</router-link></button>
         </section>
         <section class="projects__button">
           <img
