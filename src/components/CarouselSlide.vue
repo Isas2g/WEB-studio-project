@@ -1,15 +1,15 @@
 <template>
-  <div class="carousel-team">
+  <div class="carousel-slide">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CarouselTeam"
+  name: "CarouselSlide"
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

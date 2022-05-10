@@ -12,7 +12,9 @@
         <button class="main__more-btn more-btn">Подробнее</button>
       </section>
     </main>
-    <carousel-team/>
+    <carousel-team>
+      <carousel-slide />
+    </carousel-team>
     <projects class="projects">
       <container class="projects__container">
         <section class="projects__body">
@@ -100,9 +102,11 @@ import SmoothieFeed from "@/assets/images/smoothie-feed.jpg";
 import UserIcon from "@/assets/images/user-icon.png";
 import BtnArr from "@/assets/images/btn-strelka.png";
 import CarouselTeam from "@/components/CarouselTeam";
+import CarouselSlide from "@/components/CarouselSlide";
+
 
 export default {
-  components: {CarouselTeam},
+  components: {CarouselSlide, CarouselTeam},
   data: () => ({
     SmoothieFeed: SmoothieFeed,
     UserIcon: UserIcon,
