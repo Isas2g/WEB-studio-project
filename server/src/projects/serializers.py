@@ -11,7 +11,7 @@ class ProjectsSerializer(serializers.ModelSerializer):
 
 
 class ProjectsDetailSerializer(serializers.ModelSerializer):
-    creator = UserSerializer()
+    creator = UserSerializer(many=True)
 
     class Meta:
         model = Projects

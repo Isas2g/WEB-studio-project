@@ -23,13 +23,16 @@ class Projects(models.Model):
 
 class Positions(models.Model):
     name = models.TextField()
-    project = models.ForeignKey(User, on_delete=models.CASCADE)
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
     color = models.TextField()
 
     class Meta:
         db_table = 'positions'
         verbose_name = 'Должность'
         verbose_name_plural = 'Должности'
+
+    def __str__(self):
+        return self.name
 
 
 class ProjectParticipants(models.Model):
@@ -43,3 +46,6 @@ class ProjectParticipants(models.Model):
         db_table = 'project_participant'
         verbose_name = 'Участник проекта'
         verbose_name_plural = 'Участники проекта'
+
+    def __str__(self):
+        return self.project.title

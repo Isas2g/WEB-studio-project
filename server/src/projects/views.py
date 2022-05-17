@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -100,7 +99,7 @@ class ProjectParticipantsView(APIView):
         serializer = ProjectParticipantsSerializer(project_participants, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(ProjectParticipants(ProjectParticipants.objects.get(id=pk)).data)
+            return Response(ProjectParticipantsDetailSerializer(ProjectParticipants.objects.get(id=pk)).data)
         else:
             return Response(status=400)
 

@@ -81,7 +81,7 @@ class TaskCommentSerializer(serializers.ModelSerializer):
 
 class TaskCommentDetailSerializer(serializers.ModelSerializer):
     author = UserSerializer()
-    # reply_comment =
+    reply_comment = TaskCommentSerializer()
 
     class Meta:
         model = TaskComment
