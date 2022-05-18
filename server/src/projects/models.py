@@ -21,10 +21,24 @@ class Projects(models.Model):
         return self.title
 
 
+class Positions(models.Model):
+    name = models.TextField()
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
+    color = models.TextField()
+
+    class Meta:
+        db_table = 'positions'
+        verbose_name = 'Должность'
+        verbose_name_plural = 'Должности'
+
+    def __str__(self):
+        return self.name
+
+
 class ProjectParticipants(models.Model):
-    project_id = models.BigIntegerField()
-    user_id = models.BigIntegerField()
-    position_id = models.BigIntegerField()
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    position = models.ForeignKey(Positions, on_delete=models.CASCADE, null=True, blank=True)
     invited_at = models.DateTimeField()
     kicked_at = models.DateTimeField()
 
@@ -33,13 +47,5 @@ class ProjectParticipants(models.Model):
         verbose_name = 'Участник проекта'
         verbose_name_plural = 'Участники проекта'
 
-
-class Postions(models.Model):
-    name = models.TextField()
-    project = models.ForeignKey(User, on_delete=models.CASCADE)
-    color = models.TextField()
-
-    class Meta:
-        db_table = 'positions'
-        verbose_name = 'Должность'
-        verbose_name_plural = 'Должности'
+    def __str__(self):
+        return self.project.title

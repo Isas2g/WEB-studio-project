@@ -14,6 +14,9 @@ class Boards(models.Model):
         verbose_name = 'Доска'
         verbose_name_plural = 'Доски'
 
+    def __str__(self):
+        return self.title
+
 
 class TaskTags(models.Model):
     text = models.TextField()
@@ -23,6 +26,9 @@ class TaskTags(models.Model):
         db_table = 'task_tags'
         verbose_name = 'Ярлык'
         verbose_name_plural = 'Ярлыки'
+
+    def __str__(self):
+        return self.text
 
 
 class Tasks(models.Model):
@@ -41,6 +47,9 @@ class Tasks(models.Model):
         verbose_name = 'Задача'
         verbose_name_plural = 'Задачи'
 
+    def __str__(self):
+        return self.title
+
 
 class BoardColumns(models.Model):
     board = models.ForeignKey(Boards, on_delete=models.CASCADE)
@@ -51,6 +60,9 @@ class BoardColumns(models.Model):
         db_table = 'board_columns'
         verbose_name = 'Колонка доски'
         verbose_name_plural = 'Колонки досок'
+
+    def __str__(self):
+        return self.title
 
 
 class BoardTasks(models.Model):
@@ -63,6 +75,9 @@ class BoardTasks(models.Model):
         verbose_name = 'Задача доски'
         verbose_name_plural = 'Задачи досок'
 
+    def __str__(self):
+        return self.board.title
+
 
 class TaskComment(models.Model):
     content = models.TextField()
@@ -70,9 +85,12 @@ class TaskComment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     updated_at = models.DateTimeField()
     is_reply = models.BooleanField()
-    # reply_comment_id = models.ForeignKey(TaskComment, on_delete=models.CASCADE)
+    reply_comment = models.ForeignKey('TaskComment', on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta:
         db_table = 'task_comment'
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
+
+    def __str__(self):
+        return self.author.username
