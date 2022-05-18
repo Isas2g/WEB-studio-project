@@ -1,5 +1,8 @@
 /venv/
 /docker-compose.yml
-/server/.env
 /.env
 /.idea/
+/dev.env
+/server/.env
+/server/dev.env
+/server/media/

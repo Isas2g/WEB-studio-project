@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from loguru import logger
 from environs import Env
@@ -52,7 +53,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,7 +112,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # User
 AUTH_USER_MODEL = 'users.User'
 
@@ -120,7 +120,15 @@ AUTH_USER_MODEL = 'users.User'
 
 STATIC_URL = 'static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ALGORITHM = 'HS256'
+ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24
+
+GOOGLE_CLIENT_ID = env.str('GOOGLE_CLIENT_ID')

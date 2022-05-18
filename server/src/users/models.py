@@ -10,7 +10,7 @@ from .managers import CustomUserManager
 
 # AbstractUser
 
-class Role(Model):
+class UserRole(Model):
     title = CharField('название',
                       max_length=64,
                       unique=True,
@@ -39,7 +39,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     join_date = DateTimeField(auto_now_add=True,
                               )
 
-    role = ForeignKey(Role,
+    role = ForeignKey(UserRole,
                       on_delete=CASCADE,
                       blank=True,
                       null=True
@@ -57,7 +57,6 @@ class User(AbstractBaseUser, PermissionsMixin):
                                 blank=True,
                                 null=True,
                                 )
-
 
     is_staff = BooleanField(
         "staff status",
@@ -89,8 +88,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class UserContact(Model):
     user = ForeignKey(User,
-                      on_delete=CASCADE
-                      )
+                      on_delete=CASCADE,
+                      related_name='contacts')
 
     title = CharField('название',
                       max_length=64,

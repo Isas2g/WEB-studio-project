@@ -14,7 +14,7 @@ class UserContactsAdmin(admin.ModelAdmin):
     list_display_links = ('id',)
 
 
-@admin.register(Role)
+@admin.register(UserRole)
 class RoleAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'access_level')
     list_display_links = ('id',)

@@ -11,22 +11,22 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     env_file:
-      - server/.env
+      - dev.env
 
   server:
-    build: ./
+    build: ./server
     container_name: server
     command: bash entrypoint.sh
     volumes:
-      - ./src/users/migrations:/server/src/users/migrations
-      - ./src/boards/migrations:/server/src/boards/migrations
-      - ./src/projects/migrations:/server/src/projects/migrations
+      - ./server/src/users/migrations:/server/src/users/migrations
+      - ./server/src/boards/migrations:/server/src/boards/migrations
+      - ./server/src/projects/migrations:/server/src/projects/migrations
     ports:
       - 8000:8000
     networks:
       - default
     env_file:
-      - server/.env
+      - server/dev.env
     restart: always
     depends_on:
       - db
