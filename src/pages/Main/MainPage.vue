@@ -17,20 +17,21 @@
       <container class="projects__container">
         <section class="projects__body">
           <h1 class="projects__title">Наши проекты</h1>
-          <img
-              class="projects__image"
-              :src="SmoothieFeed"
-              alt="SmoothieFeed"
-          />
+          <div class="projects__image-container">
+            <img
+                class="projects__image"
+                :src="SmoothieFeed"
+                alt="SmoothieFeed"
+            />
+            <button v-on:click="showAlert" class="projects__arrow">
+              <img
+                :src="BtnArr"
+                alt="BtnArr"
+              />
+            </button>
+          </div>
           <h3 class="projects__project-title">SmoothieFeed</h3>
-          <button class="projects__button more-btn">Подробнее</button>
-        </section>
-        <section class="projects__button">
-          <img
-              class="projects__arrow"
-              :src="BtnArr"
-              alt="BtnArr"
-          />
+          <a href="http://pd-2021-2.std-1376.ist.mospolytech.ru" target="__blank" class="projects__button more-btn">Подробнее</a>
         </section>
       </container>
     </projects>
@@ -107,7 +108,12 @@ export default {
     SmoothieFeed: SmoothieFeed,
     UserIcon: UserIcon,
     BtnArr: BtnArr,
-  })
+  }),
+  methods: {
+    showAlert: function() {
+      alert('Эта часть сайта ещё в работе...');
+    }
+  }
 };
 
 </script>
@@ -169,6 +175,22 @@ export default {
   &__button {
     display: block;
     margin-top: 50px;
+  }
+
+  .projects__image-container {
+    position: relative;
+  }
+
+  button.projects__arrow {
+    position: absolute;
+    right: -110px;
+    top: 116px;
+    bottom: 0;
+    border: none;
+    background: none;
+    outline: none;
+    margin: auto;
+    height: 64px;
   }
 }
 

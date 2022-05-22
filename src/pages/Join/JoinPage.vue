@@ -60,6 +60,10 @@ export default {
 
 <style lang="scss">
 .looking {
+  &__title {
+    margin-bottom: 20px;
+  }
+
   &__persons {
     display: flex;
     flex-direction: column;
@@ -68,6 +72,7 @@ export default {
   &__person {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
   }
   &__person-info {
     margin: 0 0 0 30px;

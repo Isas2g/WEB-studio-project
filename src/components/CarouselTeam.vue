@@ -1,5 +1,4 @@
 <template>
-    <team class="team">
       <section class="team__body">
         <h1 class="team__title">Наша команда</h1>
 <!--        <button class="team__btn prev">-->
@@ -86,12 +85,23 @@
             </div>
           </div>
           <div class="carousel-btn">
-            <button class="btn-prev">Prev</button>
-            <button class="btn-next">Next</button>
+            <button v-on:click="prevTeamSlide" class="btn-prev">
+              <img
+                class="projects__arrow"
+                :src="BtnLeftArr"
+                alt="BtnLeftArr"
+              />
+            </button>
+            <button v-on:click="nextTeamSlide" class="btn-next">
+              <img
+                class="projects__arrow"
+                :src="BtnArr"
+                alt="BtnArr"
+              />
+            </button>
           </div>
         </div>
       </section>
-    </team>
 </template>
 
 <script>
@@ -106,6 +116,7 @@ import SofaImage from "@/assets/images/team/sofa.jpg";
 import AlyonaImage from "@/assets/images/team/alyona.jpg";
 import AlonkaImage from "@/assets/images/team/alonka.jpg";
 import MemberCard from "@/components/MemberCard";
+import BtnLeftArr from "@/assets/images/btn-left-strelka.png";
 import BtnArr from "@/assets/images/btn-strelka.png";
 
 export default {
@@ -124,22 +135,102 @@ export default {
     AlyonaImage: AlyonaImage,
     AlonkaImage: AlonkaImage,
     BtnArr: BtnArr,
-  })
+    BtnLeftArr: BtnLeftArr,
+    slideCount: 1
+  }),
+  methods: {
+    nextTeamSlide: function() {
+      if (this.slideCount < 300) {
+        this.slideCount = this.slideCount + 101;
+        document.getElementsByClassName('carousel-track')[0].style.left = `-${this.slideCount}%`;
+      } else {
+        this.slideCount = 1;
+        document.getElementsByClassName('carousel-track')[0].style.left = `-${this.slideCount}%`;
+      }
+    },
+    prevTeamSlide: function() {
+      if (this.slideCount > 0) {
+        this.slideCount = this.slideCount - 101;
+        document.getElementsByClassName('carousel-track')[0].style.left = `-${this.slideCount}%`;
+      } else {
+        this.slideCount = 304;
+        document.getElementsByClassName('carousel-track')[0].style.left = `-${this.slideCount}%`;
+      }
+    }
+  }
 };
 
 </script>
 
 <style lang="scss" scoped>
 
-.carousel {
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  padding-left: 144px;
+.team__body {
+  margin-bottom: 40px;
 }
 
 
+.carousel {
+  overflow: hidden;
+  position: relative;
+  height: 370px;
+}
+
+.carousel-track {
+    display: flex;
+    top: 0;
+    position: absolute;
+    left: 0%;
+    transition: 0.3s;
+  }
+  .carousel-track.management {
+    left: 0%;
+  }
+  .carousel-track.backend {
+    left: -100%;
+  }
+  .carousel-track.frontend {
+    left: -200%;
+  }
+  .carousel-track.design {
+    left: -300%;
+  }
+
+.carousel-item.item {
+  flex-shrink: 0;
+  min-width: 36%;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+}
+.btn-prev, .btn-next {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 .item {
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  .member {
+    width: 240px;
+    flex-basis: unset;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 
   &__members {
     display: flex;
@@ -156,6 +247,12 @@ export default {
     .item__member:not(:first-of-type) {
       margin: 0 0 0 30px;
     }
+  }
+}
+
+.team {
+  &__title {
+    margin-bottom: 20px;
   }
 }
 

@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import MainPage from "../pages/Main/MainPage.vue";
 import AboutPage from "../pages/About/AboutPage.vue";
 import JoinPage from "../pages/Join/JoinPage.vue";
-import FeedbackPage from "@/pages/Feedback/FeedbackPage";
+import FeedbackPage from "../pages/Feedback/FeedbackPage";
+import WorkInProgress from "../components/WorkInProgress";
 
 
 Vue.use(VueRouter)
@@ -29,6 +30,16 @@ const routes = [
         name: 'FeedbackPage',
         component: FeedbackPage
     },
+    {
+        path: '/blog',
+        name: 'WorkInProgress',
+        component: WorkInProgress
+    },
+    {
+        path: '/entry',
+        name: 'WorkInProgress',
+        component: WorkInProgress
+    }
 ]
 
 const router = new VueRouter({
