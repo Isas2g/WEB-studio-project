@@ -5,6 +5,8 @@ import AboutPage from "../pages/About/AboutPage.vue";
 import JoinPage from "../pages/Join/JoinPage.vue";
 import FeedbackPage from "@/pages/Feedback/FeedbackPage";
 import OurProjects from "@/pages/Projects/OurProjects";
+import FeedbackPage from "../pages/Feedback/FeedbackPage";
+import WorkInProgress from "../components/WorkInProgress";
 
 
 Vue.use(VueRouter)
@@ -34,6 +36,16 @@ const routes = [
         path: '/ourprojects',
         name: 'OurProjects',
         component: OurProjects
+    },
+    {
+        path: '/blog',
+        name: 'WorkInProgress',
+        component: WorkInProgress
+    },
+    {
+        path: '/entry',
+        name: 'WorkInProgress',
+        component: WorkInProgress
     }
 ]
 
