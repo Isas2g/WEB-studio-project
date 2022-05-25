@@ -120,7 +120,7 @@ AUTH_USER_MODEL = 'users.User'
 
 STATIC_URL = 'static/'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'api/v1/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
@@ -132,3 +132,10 @@ ALGORITHM = 'HS256'
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24
 
 GOOGLE_CLIENT_ID = env.str('GOOGLE_CLIENT_ID')
+
+POSITIONS = [
+    ('Дизайнер', 'designer'),
+    ('Бэк', 'backend'),
+    ('Фронт', 'frontend'),
+    ('Менеджер', 'manager')
+]

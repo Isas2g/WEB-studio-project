@@ -18,14 +18,12 @@ class UserSerializer(ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'email', 'role', 'avatar')
+        fields = ('id', 'username', 'password', 'email', 'role', 'position', 'avatar')
 
     def create(self, validated_data):
         logger.debug(validated_data)
         user = User.objects.create_user(
-            email=validated_data['email'],
-            password=validated_data['password'],
-            username=validated_data['username'],
+            **validated_data
         )
         return user
 

@@ -1,5 +1,6 @@
 from django.urls import path
-
+from django.conf import settings
+from django.conf.urls.static import static
 from src.users.endpoint import auth_views
 from src.users.endpoint.views import *
 
@@ -16,3 +17,4 @@ urlpatterns = [
     path('contacts/<int:id>/', UserContactRetrieveUpdateDestroyView.as_view()),
     path('<int:user_id>/contacts', UserContactListView.as_view()),
 ]
+

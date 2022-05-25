@@ -2,13 +2,15 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.core.validators import FileExtensionValidator
 from django.db.models import CharField, ForeignKey, CASCADE, BooleanField, IntegerField
-from django.db.models import Model, ImageField, EmailField, DateTimeField
+from django.db.models import Model, ImageField, EmailField, DateTimeField, Choices
 
 from src.base.services import get_path_upload_avatar, validate_size_image
 from .managers import CustomUserManager
+from django.conf import settings
 
 
 # AbstractUser
+
 
 class UserRole(Model):
     title = CharField('название',
@@ -36,25 +38,26 @@ class User(AbstractBaseUser, PermissionsMixin):
                        unique=True,
                        )
 
-    join_date = DateTimeField(auto_now_add=True,
-                              )
+    join_date = DateTimeField(auto_now_add=True)
 
     role = ForeignKey(UserRole,
                       on_delete=CASCADE,
-                      blank=True,
                       null=True
                       )
 
+    position = CharField(max_length=25,
+                         choices=settings.POSITIONS,
+                         null=True)
+
     avatar = ImageField(upload_to=get_path_upload_avatar,
-                        blank=True,
                         null=True,
                         validators=[
                             FileExtensionValidator(allowed_extensions=['jpg']),
                             validate_size_image
                         ]
                         )
+
     disabled_at = DateTimeField("время заморозки",
-                                blank=True,
                                 null=True,
                                 )
 
