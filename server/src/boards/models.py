@@ -4,10 +4,10 @@ from src.users.models import User
 
 
 class Boards(models.Model):
-    title = models.TextField()
-    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
+    title = models.CharField(max_length=64)
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE, blank=True, null=True)
     created_at = models.DateTimeField()
-    ended_at = models.DateTimeField()
+    ended_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
         db_table = 'boards'
@@ -19,8 +19,8 @@ class Boards(models.Model):
 
 
 class TaskTags(models.Model):
-    text = models.TextField()
-    color = models.TextField()
+    text = models.CharField(max_length=64)
+    color = models.CharField(max_length=32)
 
     class Meta:
         db_table = 'task_tags'
@@ -32,15 +32,15 @@ class TaskTags(models.Model):
 
 
 class Tasks(models.Model):
-    title = models.TextField()
-    description = models.TextField()
-    board = models.ForeignKey(Boards, on_delete=models.CASCADE)
+    title = models.CharField(max_length=64)
+    description = models.TextField(blank=True, null=True)
+    board = models.ForeignKey(Boards, on_delete=models.CASCADE, blank=True, null=True)
     created_at = models.DateTimeField()
-    is_done = models.BooleanField()
-    executor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='executor')
-    done_at = models.DateTimeField()
+    is_done = models.BooleanField(default=False)
+    executor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='executor', blank=True, null=True)
+    done_at = models.DateTimeField(blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
-    tag = models.ForeignKey(TaskTags, on_delete=models.CASCADE)
+    tag = models.ForeignKey(TaskTags, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         db_table = 'tasks'
@@ -53,7 +53,7 @@ class Tasks(models.Model):
 
 class BoardColumns(models.Model):
     board = models.ForeignKey(Boards, on_delete=models.CASCADE)
-    title = models.TextField()
+    title = models.CharField(max_length=64)
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
@@ -83,8 +83,8 @@ class TaskComment(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    updated_at = models.DateTimeField()
-    is_reply = models.BooleanField()
+    updated_at = models.DateTimeField(blank=True, null=True)
+    is_reply = models.BooleanField(default=False)
     reply_comment = models.ForeignKey('TaskComment', on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta:
