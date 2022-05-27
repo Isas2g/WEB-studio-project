@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss">
 @import url("./fonts.scss");
-
+@import url("./breakpoints.scss");
 img {
   pointer-events: none;
 }

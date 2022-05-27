@@ -21,19 +21,21 @@
           <h1 class="projects__title">Наши проекты</h1>
           <div class="projects__image-container">
             <img
-                class="projects__image"
-                :src="SmoothieFeed"
-                alt="SmoothieFeed"
+              class="projects__image"
+              :src="SmoothieFeed"
+              alt="SmoothieFeed"
             />
             <button v-on:click="showAlert" class="projects__arrow">
-              <img
-                :src="BtnArr"
-                alt="BtnArr"
-              />
+              <img :src="BtnArr" alt="BtnArr" />
             </button>
           </div>
           <h3 class="projects__project-title">SmoothieFeed</h3>
-          <a href="http://pd-2021-2.std-1376.ist.mospolytech.ru" target="__blank" class="projects__button more-btn">Подробнее</a>
+          <a
+            href="http://pd-2021-2.std-1376.ist.mospolytech.ru"
+            target="__blank"
+            class="projects__button more-btn"
+            >Подробнее</a
+          >
         </section>
       </container>
     </projects>
@@ -42,21 +44,23 @@
         <section class="feedback__first-column">
           <h1 class="feedback__title title">Отзывы</h1>
           <p class="feedback__subtitle subtitle">Почитайте отзывы...</p>
-          <button class="feedback__more-btn more-btn"><router-link class="feedback__allFeedbackLink" to="/feedback">Все отзывы</router-link></button>
+          <button class="feedback__more-btn more-btn">
+            <router-link class="feedback__allFeedbackLink" to="/feedback"
+              >Все отзывы</router-link
+            >
+          </button>
         </section>
         <section class="feedback__space"></section>
         <section class="feedback__second-column">
-          <img
-              class="feedback__user-icon"
-              :src="UserIcon"
-              alt="UserIcon"
-          />
+          <img class="feedback__user-icon" :src="UserIcon" alt="UserIcon" />
           <p class="feedback__text name">Александр</p>
-          <p class="feedback__text text">Быстро и качественно сделали сайт! Рекомендую!</p>
+          <p class="feedback__text text">
+            Быстро и качественно сделали сайт! Рекомендую!
+          </p>
         </section>
       </section>
     </feedback>
-    <footer class="footer">
+    <footer class="footer container">
       <section class="footer__body">
         <h1 class="footer__title title">Связаться с нами</h1>
         <p class="footer__subtitle subtitle">
@@ -105,21 +109,19 @@ import BtnArr from "@/assets/images/btn-strelka.png";
 import CarouselTeam from "@/components/CarouselTeam";
 import CarouselSlide from "@/components/CarouselSlide";
 
-
 export default {
-  components: {CarouselSlide, CarouselTeam},
+  components: { CarouselSlide, CarouselTeam },
   data: () => ({
     SmoothieFeed: SmoothieFeed,
     UserIcon: UserIcon,
     BtnArr: BtnArr,
   }),
   methods: {
-    showAlert: function() {
-      alert('Эта часть сайта ещё в работе...');
-    }
-  }
+    showAlert: function () {
+      alert("Эта часть сайта ещё в работе...");
+    },
+  },
 };
-
 </script>
 
 <style lang="scss" scoped>
@@ -203,7 +205,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 150px 330px 150px;
+    // padding: 0 150px 330px 150px;
   }
 
   .name {
@@ -307,7 +309,8 @@ export default {
     height: 25px;
   }
 }
-
+@media (max-width: 768px) {
+}
 @media screen and (max-width: 376px) {
   .main {
     &__block {
@@ -379,13 +382,12 @@ export default {
       text-align: center;
       flex-direction: column;
       grid-template-areas:
-      "title"
-      "sub"
-    "user"
-      "name"
-      "text"
-    "btn";
-
+        "title"
+        "sub"
+        "user"
+        "name"
+        "text"
+        "btn";
     }
 
     &__title {
@@ -398,7 +400,6 @@ export default {
       margin-top: 31px;
       margin-bottom: 37px;
     }
-
 
     button.more-btn {
       grid-area: btn;
@@ -427,10 +428,9 @@ export default {
       grid-area: text;
     }
 
-    &__text.name{
+    &__text.name {
       grid-area: name;
     }
-
   }
   .footer {
     &__body {
@@ -460,10 +460,10 @@ export default {
       grid-column-gap: 80px;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
-      "name name name"
-      "phone phone phone"
-      "email email email"
-      "com com com";
+        "name name name"
+        "phone phone phone"
+        "email email email"
+        "com com com";
     }
 
     .form__input {

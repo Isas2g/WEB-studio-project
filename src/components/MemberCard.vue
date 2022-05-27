@@ -37,4 +37,14 @@ export default {
     text-align: center;
   }
 }
+
+@media (max-width: 768px) {
+  .member {
+    &__image {
+      width: 150px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
 </style>

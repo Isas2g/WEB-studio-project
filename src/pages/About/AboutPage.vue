@@ -89,7 +89,12 @@
             alt="SmoothieFeed"
           />
           <h3 class="about-project__project-title">SmoothieFeed</h3>
-          <a href="http://pd-2021-2.std-1376.ist.mospolytech.ru" target="__blank" class="about-project__button more-btn">Подробнее</a>
+          <a
+            href="http://pd-2021-2.std-1376.ist.mospolytech.ru"
+            target="__blank"
+            class="about-project__button more-btn"
+            >Подробнее</a
+          >
         </div>
 
         <!-- <div class="about-project__project">
@@ -145,9 +150,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  h3.direction__title {
-      margin-bottom: 20px;
-  }
+h3.direction__title {
+  margin-bottom: 20px;
+}
 
 .about-project__project {
   img {
@@ -214,6 +219,13 @@ export default {
   &__button {
     display: block;
     margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .direction {
+    &__members {
+      flex-direction: column;
+    }
   }
 }
 </style>
