@@ -21,29 +21,19 @@
           <h1 class="projects__title">Наши проекты</h1>
           <div class="projects__image-container">
             <img
-              class="projects__image"
-              :src="SmoothieFeed"
-              alt="SmoothieFeed"
+                class="projects__image"
+                :src="SmoothieFeed"
+                alt="SmoothieFeed"
             />
             <button v-on:click="showAlert" class="projects__arrow">
-              <img :src="BtnArr" alt="BtnArr" />
+              <img
+                :src="BtnArr"
+                alt="BtnArr"
+              />
             </button>
           </div>
           <h3 class="projects__project-title">SmoothieFeed</h3>
-          <!-- <button class="projects__button more-btn"><router-link class="projects__allOurProjectsLink" to="/ourprojects">Подробнее</router-link></button>
-        </section>
-        <section class="projects__button">
-          <img
-              class="projects__arrow"
-              :src="BtnArr"
-              alt="BtnArr"
-          /> -->
-          <a
-            href="http://pd-2021-2.std-1376.ist.mospolytech.ru"
-            target="__blank"
-            class="projects__button more-btn"
-            >Подробнее</a
-          >
+          <a href="http://pd-2021-2.std-1376.ist.mospolytech.ru" target="__blank" class="projects__button more-btn">Подробнее</a>
         </section>
       </container>
     </projects>
@@ -52,19 +42,17 @@
         <section class="feedback__first-column">
           <h1 class="feedback__title title">Отзывы</h1>
           <p class="feedback__subtitle subtitle">Почитайте отзывы...</p>
-          <button class="feedback__more-btn more-btn">
-            <router-link class="feedback__allFeedbackLink" to="/feedback"
-              >Все отзывы</router-link
-            >
-          </button>
+          <button class="feedback__more-btn more-btn"><router-link class="feedback__allFeedbackLink" to="/feedback">Все отзывы</router-link></button>
         </section>
         <section class="feedback__space"></section>
         <section class="feedback__second-column">
-          <img class="feedback__user-icon" :src="UserIcon" alt="UserIcon" />
+          <img
+              class="feedback__user-icon"
+              :src="UserIcon"
+              alt="UserIcon"
+          />
           <p class="feedback__text name">Александр</p>
-          <p class="feedback__text text">
-            Быстро и качественно сделали сайт! Рекомендую!
-          </p>
+          <p class="feedback__text text">Быстро и качественно сделали сайт! Рекомендую!</p>
         </section>
       </section>
     </feedback>
@@ -117,22 +105,24 @@ import BtnArr from "@/assets/images/btn-strelka.png";
 import CarouselTeam from "@/components/CarouselTeam";
 import CarouselSlide from "@/components/CarouselSlide";
 
+
 export default {
-  components: { CarouselSlide, CarouselTeam },
+  components: {CarouselSlide, CarouselTeam},
   data: () => ({
     SmoothieFeed: SmoothieFeed,
     UserIcon: UserIcon,
     BtnArr: BtnArr,
   }),
   methods: {
-    showAlert: function () {
-      alert("Эта часть сайта ещё в работе...");
-    },
-  },
+    showAlert: function() {
+      alert('Эта часть сайта ещё в работе...');
+    }
+  }
 };
+
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .main {
   &__block {
     max-width: 800px;
@@ -318,10 +308,11 @@ export default {
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 376px) {
   .main {
     &__block {
       width: 284px;
+      margin-left: 42px;
       //padding: 0 0 150px 0;
     }
 
@@ -346,6 +337,8 @@ export default {
   .projects {
     &__container {
       max-width: 240px;
+      margin-left: 112px;
+      align-content: center;
     }
     &__body {
       padding-bottom: 90px;
@@ -380,56 +373,84 @@ export default {
   }
   .feedback {
     &__body {
-      padding: 0 150px 330px 150px;
+      padding: 0 134px 117px 134px;
+      width: 200px;
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      flex-direction: column;
+      grid-template-areas:
+      "title"
+      "sub"
+    "user"
+      "name"
+      "text"
+    "btn";
+
     }
 
-    .name {
-      font-weight: bold;
+    &__title {
+      grid-area: title;
+      font-size: 30px;
+    }
+
+    &__subtitle {
+      grid-area: sub;
+      margin-top: 31px;
+      margin-bottom: 37px;
+    }
+
+
+    button.more-btn {
+      grid-area: btn;
+      width: 100%;
+      height: 37px;
+      margin-top: 105px;
+      font-size: 16px;
+      text-align: center;
+      white-space: nowrap;
     }
 
     &__first-column {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      display: contents;
     }
 
     &__second-column {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 300px;
-      align-items: center;
+      display: contents;
     }
 
     &__user-icon {
-      max-width: 146px;
+      max-width: 107px;
+      grid-area: user;
     }
 
-    &__subtitle {
-      margin-top: 20px;
-      margin-bottom: 125px;
+    &__text.text {
+      grid-area: text;
     }
 
-    &__more-btn {
-      margin-bottom: 5px;
+    &__text.name{
+      grid-area: name;
     }
+
   }
-
   .footer {
     &__body {
       color: white;
-      align-content: end;
-      justify-content: center;
-      padding: 0 150px 0 150px;
+      justify-items: center;
+      padding: 0 42px 0 42px;
+      margin-left: 24px;
       text-align: center;
+      width: 100%;
     }
 
     &__subtitle {
       text-align: center;
+      font-size: 16px;
     }
 
     &__title {
       text-align: center;
+      font-size: 30px;
     }
 
     &__form {
@@ -440,8 +461,10 @@ export default {
       grid-column-gap: 80px;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
-        "name phone email"
-        "com com com";
+      "name name name"
+      "phone phone phone"
+      "email email email"
+      "com com com";
     }
 
     .form__input {
