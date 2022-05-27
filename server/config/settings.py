@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'src.users',
     'src.boards',
     'src.projects',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,12 @@ POSITIONS = [
     ('Фронт', 'frontend'),
     ('Менеджер', 'manager')
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 1,
+    'PAGINATE_BY_PARAM': 'page_size'
+}

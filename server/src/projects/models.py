@@ -4,14 +4,13 @@ from ..users.models import User
 
 
 class Projects(models.Model):
-    title = models.TextField()
+    title = models.CharField(max_length=64)
     created_at = models.DateTimeField()
-    closed_at = models.DateTimeField()
-    description = models.TextField()
-    icon_url = models.TextField()
-    creator = models.ManyToManyField(User,
-                                     verbose_name="создатель",
-                                     related_name="project_creator")
+    closed_at = models.DateTimeField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    icon_url = models.ImageField(upload_to='images/', blank=True, null=True)
+    creator = models.ForeignKey(User, verbose_name="создатель", related_name="project_creator",
+                                on_delete=models.CASCADE, default=None)
 
     class Meta:
         db_table = 'projects'
@@ -23,9 +22,9 @@ class Projects(models.Model):
 
 
 class Positions(models.Model):
-    name = models.TextField()
-    project = models.ForeignKey(Projects, on_delete=models.CASCADE)
-    color = models.TextField()
+    name = models.CharField(max_length=64)
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE, blank=True, null=True)
+    color = models.CharField(max_length=32)
 
     class Meta:
         db_table = 'positions'
@@ -37,11 +36,11 @@ class Positions(models.Model):
 
 
 class ProjectParticipants(models.Model):
-    project = models.ForeignKey(Projects, on_delete=models.CASCADE, null=True, blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    project = models.ForeignKey(Projects, on_delete=models.CASCADE, default=None)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     position = models.ForeignKey(Positions, on_delete=models.CASCADE, null=True, blank=True)
     invited_at = models.DateTimeField()
-    kicked_at = models.DateTimeField()
+    kicked_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
         db_table = 'project_participant'

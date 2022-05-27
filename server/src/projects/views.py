@@ -1,11 +1,20 @@
 from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .serializers import *
 from .models import *
+from .service import *
 
 
-class ProjectsListCreateView(APIView):
+class ProjectsListCreateView(ListAPIView):
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = ProjectFilter
+    serializer_class = ProjectsSerializer
+    queryset = Projects.objects.all()
+    pagination_class = PaginationProjects
+
     def post(self, request):
         project = ProjectsSerializer(data=request.data)
         if project.is_valid():
@@ -13,11 +22,6 @@ class ProjectsListCreateView(APIView):
             return Response(status=201)
         else:
             return Response(status=400)
-
-    def get(self, request):
-        project = Projects.objects
-        serializer = ProjectsSerializer(project, many=True)
-        return Response(serializer.data)
 
 
 class ProjectsView(APIView):
