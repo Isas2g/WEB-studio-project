@@ -7,7 +7,7 @@ class Projects(models.Model):
     created_at = models.DateTimeField()
     closed_at = models.DateTimeField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    icon_url = models.TextField(blank=True, null=True)
+    icon_url = models.ImageField(upload_to='images/', blank=True, null=True)
     creator = models.ForeignKey(User, verbose_name="создатель", related_name="project_creator",
                                 on_delete=models.CASCADE, default=None)
 
