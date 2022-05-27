@@ -21,15 +21,12 @@
           <h1 class="projects__title">Наши проекты</h1>
           <div class="projects__image-container">
             <img
-                class="projects__image"
-                :src="SmoothieFeed"
-                alt="SmoothieFeed"
+              class="projects__image"
+              :src="SmoothieFeed"
+              alt="SmoothieFeed"
             />
             <button v-on:click="showAlert" class="projects__arrow">
-              <img
-                :src="BtnArr"
-                alt="BtnArr"
-              />
+              <img :src="BtnArr" alt="BtnArr" />
             </button>
           </div>
           <h3 class="projects__project-title">SmoothieFeed</h3>
@@ -41,7 +38,12 @@
               :src="BtnArr"
               alt="BtnArr"
           /> -->
-          <a href="http://pd-2021-2.std-1376.ist.mospolytech.ru" target="__blank" class="projects__button more-btn">Подробнее</a>
+          <a
+            href="http://pd-2021-2.std-1376.ist.mospolytech.ru"
+            target="__blank"
+            class="projects__button more-btn"
+            >Подробнее</a
+          >
         </section>
       </container>
     </projects>
@@ -50,17 +52,19 @@
         <section class="feedback__first-column">
           <h1 class="feedback__title title">Отзывы</h1>
           <p class="feedback__subtitle subtitle">Почитайте отзывы...</p>
-          <button class="feedback__more-btn more-btn"><router-link class="feedback__allFeedbackLink" to="/feedback">Все отзывы</router-link></button>
+          <button class="feedback__more-btn more-btn">
+            <router-link class="feedback__allFeedbackLink" to="/feedback"
+              >Все отзывы</router-link
+            >
+          </button>
         </section>
         <section class="feedback__space"></section>
         <section class="feedback__second-column">
-          <img
-              class="feedback__user-icon"
-              :src="UserIcon"
-              alt="UserIcon"
-          />
+          <img class="feedback__user-icon" :src="UserIcon" alt="UserIcon" />
           <p class="feedback__text name">Александр</p>
-          <p class="feedback__text text">Быстро и качественно сделали сайт! Рекомендую!</p>
+          <p class="feedback__text text">
+            Быстро и качественно сделали сайт! Рекомендую!
+          </p>
         </section>
       </section>
     </feedback>
@@ -113,24 +117,22 @@ import BtnArr from "@/assets/images/btn-strelka.png";
 import CarouselTeam from "@/components/CarouselTeam";
 import CarouselSlide from "@/components/CarouselSlide";
 
-
 export default {
-  components: {CarouselSlide, CarouselTeam},
+  components: { CarouselSlide, CarouselTeam },
   data: () => ({
     SmoothieFeed: SmoothieFeed,
     UserIcon: UserIcon,
     BtnArr: BtnArr,
   }),
   methods: {
-    showAlert: function() {
-      alert('Эта часть сайта ещё в работе...');
-    }
-  }
+    showAlert: function () {
+      alert("Эта часть сайта ещё в работе...");
+    },
+  },
 };
-
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .main {
   &__block {
     max-width: 800px;
@@ -438,8 +440,8 @@ export default {
       grid-column-gap: 80px;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
-      "name phone email"
-      "com com com";
+        "name phone email"
+        "com com com";
     }
 
     .form__input {
