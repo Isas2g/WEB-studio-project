@@ -313,7 +313,6 @@ export default {
     &__block {
       width: 284px;
       margin-left: 42px;
-      //padding: 0 0 150px 0;
     }
 
     &__title {
