@@ -315,4 +315,177 @@ export default {
     height: 25px;
   }
 }
+
+@media screen and (max-width: 375px) {
+  .main {
+    &__block {
+      width: 284px;
+      //padding: 0 0 150px 0;
+    }
+
+    &__title {
+      text-align: start;
+      margin-bottom: 20px;
+      font-size: 30px;
+    }
+
+    &__subtitle {
+      width: 266px;
+      margin-bottom: 73px;
+      font-size: 16px;
+    }
+
+    &__main__more-btn.more-btn {
+      width: 166px;
+      height: 37px;
+      font-size: 16px;
+    }
+  }
+  .projects {
+    &__container {
+      max-width: 240px;
+    }
+    &__body {
+      padding-bottom: 90px;
+    }
+    &__arrow {
+      display: none;
+    }
+
+    &__title {
+      margin-bottom: 20px;
+      font-size: 30px;
+    }
+
+    &__project-title {
+      font-size: 20px;
+    }
+
+    &__image {
+      width: 240px;
+      max-height: 282px;
+    }
+
+    button.more-btn {
+      width: 166px;
+      height: 37px;
+      margin-top: 50px;
+    }
+
+    button.projects__arrow {
+      display: none;
+    }
+  }
+  .feedback {
+    &__body {
+      padding: 0 150px 330px 150px;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    &__first-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__second-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 300px;
+      align-items: center;
+    }
+
+    &__user-icon {
+      max-width: 146px;
+    }
+
+    &__subtitle {
+      margin-top: 20px;
+      margin-bottom: 125px;
+    }
+
+    &__more-btn {
+      margin-bottom: 5px;
+    }
+  }
+
+  .footer {
+    &__body {
+      color: white;
+      align-content: end;
+      justify-content: center;
+      padding: 0 150px 0 150px;
+      text-align: center;
+    }
+
+    &__subtitle {
+      text-align: center;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__form {
+      padding-top: 78px;
+      padding-bottom: 89px;
+      display: grid;
+      grid-row-gap: 60px;
+      grid-column-gap: 80px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+      "name phone email"
+      "com com com";
+    }
+
+    .form__input {
+      width: 100%;
+    }
+
+    .name {
+      grid-area: name;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      color: white;
+      height: 25px;
+    }
+
+    .phone {
+      grid-area: phone;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      color: white;
+      height: 25px;
+    }
+
+    .email {
+      grid-area: email;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      color: white;
+      height: 25px;
+    }
+
+    .com {
+      grid-area: com;
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      color: white;
+      height: 25px;
+    }
+  }
+}
 </style>

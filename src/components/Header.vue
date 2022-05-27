@@ -65,4 +65,10 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 264px) {
+  .logo {
+    max-width: 60px;
+  }
+}
 </style>
