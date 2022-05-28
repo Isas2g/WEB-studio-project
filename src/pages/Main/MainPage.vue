@@ -15,9 +15,9 @@
     <carousel-team>
       <carousel-slide />
     </carousel-team>
-    <projects class="projects">
-      <container class="projects__container">
-        <section class="projects__body">
+    <section class="projects">
+      <div class="projects__container">
+        <div class="projects__body">
           <h1 class="projects__title">Наши проекты</h1>
           <div class="projects__image-container">
             <img
@@ -36,12 +36,12 @@
             class="projects__button more-btn"
             >Подробнее</a
           >
-        </section>
-      </container>
-    </projects>
-    <feedback class="feedback">
-      <section class="feedback__body">
-        <section class="feedback__first-column">
+        </div>
+      </div>
+    </section>
+    <section class="feedback">
+      <div class="feedback__body">
+        <div class="feedback__first-column">
           <h1 class="feedback__title title">Отзывы</h1>
           <p class="feedback__subtitle subtitle">Почитайте отзывы...</p>
           <button class="feedback__more-btn more-btn">
@@ -49,19 +49,19 @@
               >Все отзывы</router-link
             >
           </button>
-        </section>
-        <section class="feedback__space"></section>
-        <section class="feedback__second-column">
+        </div>
+        <div class="feedback__space"></div>
+        <div class="feedback__second-column">
           <img class="feedback__user-icon" :src="UserIcon" alt="UserIcon" />
           <p class="feedback__text name">Александр</p>
           <p class="feedback__text text">
             Быстро и качественно сделали сайт! Рекомендую!
           </p>
-        </section>
-      </section>
-    </feedback>
-    <footer class="footer container">
-      <section class="footer__body">
+        </div>
+      </div>
+    </section>
+    <section class="footer container">
+      <div class="footer__body">
         <h1 class="footer__title title">Связаться с нами</h1>
         <p class="footer__subtitle subtitle">
           Оставьте свои контакты и мы свяжемся с вами в ближайшее время
@@ -97,8 +97,8 @@
           />
         </form>
         <button class="footer__more-btn more-btn" form="form">Связаться</button>
-      </section>
-    </footer>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -128,7 +128,7 @@ export default {
 .main {
   &__block {
     max-width: 800px;
-    padding: 0 0 150px 0; //зачем паддинг был 150 пикселей сверху?
+    padding: 0 0 150px 0;
   }
   &__title {
     text-align: start;
@@ -205,7 +205,6 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    // padding: 0 150px 330px 150px;
   }
 
   .name {
