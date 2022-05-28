@@ -205,6 +205,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 30px;
   }
 
   .name {
@@ -244,8 +245,10 @@ export default {
     color: white;
     align-content: end;
     justify-content: center;
-    padding: 0 150px 0 150px;
+    margin-top: 291px;
+    //padding: 0 150px 0 150px;
     text-align: center;
+    width: 100%;
   }
 
   &__subtitle {
