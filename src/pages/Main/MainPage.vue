@@ -311,7 +311,210 @@ export default {
     height: 25px;
   }
 }
+@media (max-width: 1440px) {
+
+}
+
+@media (max-width: 1024px) {
+  .main {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .projects {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .feedback {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .footer {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
 @media (max-width: 768px) {
+  .main {
+    &__block {
+      margin-left: 5%;
+      margin-right: 10%;
+    }
+    &__title {
+      text-align: start;
+      margin-bottom: 20px;
+      font-size: 30px;
+    }
+    &__subtitle {
+      margin-bottom: 73px;
+      font-size: 16px;
+    }
+  }
+  .projects {
+    &__container {
+      margin-left: 35%;
+      align-content: center;
+    }
+    &__body {
+      padding-bottom: 90px;
+    }
+    &__arrow {
+      display: none;
+    }
+    &__title {
+      margin-bottom: 20px;
+      font-size: 30px;
+    }
+    &__project-title {
+      font-size: 20px;
+    }
+    &__image {
+      width: 240px;
+      max-height: 282px;
+    }
+    button.projects__arrow {
+      display: none;
+    }
+  }
+  .feedback {
+    &__body {
+      margin-left: 34%;
+      width: 250px;
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      flex-direction: column;
+      grid-template-areas:
+        "title"
+        "sub"
+        "user"
+        "name"
+        "text"
+        "btn";
+    }
+
+    &__title {
+      grid-area: title;
+      font-size: 30px;
+    }
+
+    &__subtitle {
+      grid-area: sub;
+      margin-top: 31px;
+      margin-bottom: 37px;
+    }
+
+    button.more-btn {
+      grid-area: btn;
+      width: 100%;
+      margin-top: 105px;
+      font-size: 16px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    &__first-column {
+      display: contents;
+    }
+
+    &__second-column {
+      display: contents;
+    }
+
+    &__user-icon {
+      max-width: 107px;
+      grid-area: user;
+    }
+
+    &__text.text {
+      grid-area: text;
+    }
+
+    &__text.name {
+      grid-area: name;
+    }
+  }
+  .footer {
+    &__body {
+      color: white;
+      justify-items: center;
+      margin-left: 4%;
+      text-align: center;
+      width: 98%;
+    }
+
+    &__subtitle {
+      text-align: center;
+      font-size: 16px;
+    }
+
+    &__title {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    &__form {
+      padding-top: 78px;
+      padding-bottom: 89px;
+      display: grid;
+      grid-row-gap: 60px;
+      grid-column-gap: 80px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "name name name"
+        "phone phone phone"
+        "email email email"
+        "com com com";
+    }
+
+    .form__input {
+      width: 100%;
+    }
+
+    .name {
+      grid-area: name;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      color: white;
+      height: 25px;
+    }
+
+    .phone {
+      grid-area: phone;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      color: white;
+      height: 25px;
+    }
+
+    .email {
+      grid-area: email;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      color: white;
+      height: 25px;
+    }
+
+    .com {
+      grid-area: com;
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      color: white;
+      height: 25px;
+    }
+  }
+}
+@media (max-width: 540px) {
+
 }
 @media screen and (max-width: 376px) {
   .main {

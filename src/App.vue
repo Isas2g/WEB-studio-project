@@ -107,5 +107,13 @@ a {
   font-weight: 700;
   font-size: 16px;
 }
+
+@media (max-width: 1024px) {
+  button.more-btn {
+    width: 250px;
+    height: 45px;
+    margin-top: 10px;
+  }
+}
 </style>
 
