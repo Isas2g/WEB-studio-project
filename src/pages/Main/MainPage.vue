@@ -1,17 +1,15 @@
 <template>
-  <div class="container">
-    <main class="main">
-      <section class="main__block">
-        <h1 class="main__title title">
-          Студенческая веб-студия Московского Политеха
-        </h1>
-        <p class="main__subtitle subtitle">
-          Мы крутые ребята из Московского политеха и создаем крутой контент для
-          тебя и всех остальных
-        </p>
-        <button class="main__more-btn more-btn">Подробнее</button>
-      </section>
-    </main>
+  <main class="main container">
+    <section class="main__block">
+      <h1 class="main__title title">
+        Студенческая веб-студия Московского Политеха
+      </h1>
+      <p class="main__subtitle subtitle">
+        Мы крутые ребята из Московского политеха и создаем крутой контент для
+        тебя и всех остальных
+      </p>
+      <button class="main__more-btn more-btn">Подробнее</button>
+    </section>
     <carousel-team>
       <carousel-slide />
     </carousel-team>
@@ -99,7 +97,7 @@
         <button class="footer__more-btn more-btn" form="form">Связаться</button>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -312,7 +310,6 @@ export default {
   }
 }
 @media (max-width: 1440px) {
-
 }
 
 @media (max-width: 1024px) {
@@ -513,7 +510,6 @@ export default {
   }
 }
 @media (max-width: 540px) {
-
 }
 @media screen and (max-width: 376px) {
   .main {
