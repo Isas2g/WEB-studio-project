@@ -326,14 +326,13 @@ export default {
   }
   .feedback {
     margin-left: 5%;
-    margin-right: 5%;
+    margin-right: 6%;
   }
   .footer {
     margin-left: 5%;
     margin-right: 5%;
   }
 }
-
 @media (max-width: 768px) {
   .main {
     &__block {
@@ -519,68 +518,23 @@ export default {
 @media screen and (max-width: 376px) {
   .main {
     &__block {
-      width: 284px;
-      margin-left: 42px;
-    }
-
-    &__title {
-      text-align: start;
-      margin-bottom: 20px;
-      font-size: 30px;
-    }
-
-    &__subtitle {
-      width: 266px;
-      margin-bottom: 73px;
-      font-size: 16px;
-    }
-
-    &__main__more-btn.more-btn {
-      width: 166px;
-      height: 37px;
-      font-size: 16px;
+      width: auto;
+      margin-left: 5%;
     }
   }
   .projects {
     &__container {
-      max-width: 240px;
-      margin-left: 112px;
-      align-content: center;
+      margin-left: 25%;
     }
     &__body {
-      padding-bottom: 90px;
-    }
-    &__arrow {
-      display: none;
-    }
-
-    &__title {
-      margin-bottom: 20px;
-      font-size: 30px;
-    }
-
-    &__project-title {
-      font-size: 20px;
-    }
-
-    &__image {
-      width: 240px;
-      max-height: 282px;
-    }
-
-    button.more-btn {
-      width: 166px;
-      height: 37px;
-      margin-top: 50px;
-    }
-
-    button.projects__arrow {
-      display: none;
+      padding-bottom: 40%;
     }
   }
   .feedback {
     &__body {
-      padding: 0 134px 117px 134px;
+      //padding: 0 134px 117px 134px;
+      //padding: 0 0 0 0;
+      //margin-left: 50%;
       width: 200px;
       display: grid;
       justify-items: center;
