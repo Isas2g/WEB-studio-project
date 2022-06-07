@@ -4,8 +4,8 @@ from src.users.models import User
 
 class Projects(models.Model):
     title = models.CharField(max_length=64)
-    created_at = models.DateTimeField()
-    closed_at = models.DateTimeField(blank=True, null=True)
+    created_at = models.DateField()
+    closed_at = models.DateField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     icon_url = models.ImageField(upload_to='images/', blank=True, null=True)
     creator = models.ForeignKey(User, verbose_name="создатель", related_name="project_creator",
@@ -38,8 +38,8 @@ class ProjectParticipants(models.Model):
     project = models.ForeignKey(Projects, on_delete=models.CASCADE, default=None)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     position = models.ForeignKey(Positions, on_delete=models.CASCADE, null=True, blank=True)
-    invited_at = models.DateTimeField()
-    kicked_at = models.DateTimeField(blank=True, null=True)
+    invited_at = models.DateField()
+    kicked_at = models.DateField(blank=True, null=True)
 
     class Meta:
         db_table = 'project_participant'

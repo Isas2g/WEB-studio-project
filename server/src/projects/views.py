@@ -19,7 +19,7 @@ class ProjectsListCreateView(ListAPIView):
         project = ProjectsSerializer(data=request.data)
         if project.is_valid():
             project.save()
-            return Response(status=201)
+            return Response(project.data)
         else:
             return Response(status=400)
 
@@ -55,7 +55,7 @@ class PositionsListCreateView(APIView):
         position = PositionsSerializer(data=request.data)
         if position.is_valid():
             position.save()
-            return Response(status=201)
+            return Response(position.data)
         else:
             return Response(status=400)
 
@@ -82,12 +82,11 @@ class PositionsView(APIView):
 
 
 class ProjectParticipantsCreateView(APIView):
-
     def post(self, request):
         project_participants = ProjectParticipantsSerializer(data=request.data)
         if project_participants.is_valid():
             project_participants.save()
-            return Response(status=201)
+            return Response(project_participants.data)
         else:
             return Response(status=400)
 

@@ -11,7 +11,7 @@ class BoardsCreateView(APIView):
         board = BoardsSerializer(data=request.data)
         if board.is_valid():
             board.save()
-            return Response(status=201)
+            return Response(board.data)
         else:
             return Response(status=400)
 
@@ -42,7 +42,7 @@ class TasksCreateView(APIView):
         task = TasksSerializer(data=request.data)
         if task.is_valid():
             task.save()
-            return Response(status=201)
+            return Response(task.data)
         else:
             return Response(status=400)
 
@@ -73,7 +73,7 @@ class BoardColumnsCreateView(APIView):
         board_columns = BoardColumnsSerializer(data=request.data)
         if board_columns.is_valid():
             board_columns.save()
-            return Response(status=201)
+            return Response(board_columns.data)
         else:
             return Response(status=400)
 
@@ -104,7 +104,7 @@ class TaskTagsCreateView(APIView):
         task_tags = TaskTagsSerializer(data=request.data)
         if task_tags.is_valid():
             task_tags.save()
-            return Response(status=201)
+            return Response(task_tags.data)
         else:
             return Response(status=400)
 
@@ -135,7 +135,7 @@ class BoardTasksCreateView(APIView):
         board_task = BoardTasksSerializer(data=request.data)
         if board_task.is_valid():
             board_task.save()
-            return Response(status=201)
+            return Response(board_task.data)
         else:
             return Response(status=400)
 
@@ -166,7 +166,7 @@ class TaskCommentCreateView(APIView):
         task_comment = TaskCommentSerializer(data=request.data)
         if task_comment.is_valid():
             task_comment.save()
-            return Response(status=201)
+            return Response(task_comment.data)
         else:
             return Response(status=400)
 
