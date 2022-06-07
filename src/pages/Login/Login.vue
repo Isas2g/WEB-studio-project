@@ -65,7 +65,7 @@ export default {
 
 .form__input {
   border-radius: 10px;
-  width: 100%;
+  min-width: 100%;
   border: none;
   font-size: 16px;
   margin: 5%;
