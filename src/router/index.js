@@ -7,6 +7,7 @@ import OurProjects from "@/pages/Projects/OurProjects";
 import FeedbackPage from "../pages/Feedback/FeedbackPage";
 import WorkInProgress from "../components/WorkInProgress";
 import Login from "@/pages/Login/Login";
+import Profile from "@/pages/Profile/Profile";
 
 
 Vue.use(VueRouter)
@@ -51,6 +52,11 @@ const routes = [
         path: '/recovery',
         name: 'WorkInProgress',
         component: WorkInProgress
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
     }
 ]
 
