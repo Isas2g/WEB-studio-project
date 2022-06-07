@@ -6,6 +6,7 @@ import JoinPage from "../pages/Join/JoinPage.vue";
 import OurProjects from "@/pages/Projects/OurProjects";
 import FeedbackPage from "../pages/Feedback/FeedbackPage";
 import WorkInProgress from "../components/WorkInProgress";
+import Login from "@/pages/Login/Login";
 
 
 Vue.use(VueRouter)
@@ -43,6 +44,11 @@ const routes = [
     },
     {
         path: '/entry',
+        name: 'Login',
+        component: Login
+    },
+    {
+        path: '/recovery',
         name: 'WorkInProgress',
         component: WorkInProgress
     }

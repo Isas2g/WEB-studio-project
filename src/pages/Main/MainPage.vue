@@ -311,7 +311,6 @@ export default {
 }
 @media (max-width: 1440px) {
 }
-
 @media (max-width: 1024px) {
   .main {
     margin-left: 5%;
