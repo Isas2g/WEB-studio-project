@@ -1,12 +1,37 @@
 <template>
   <main class="main container">
     <section class="main block">
-      <img class="main__user-icon user-icon" :src="defaultPicture" alt="defaultPicture" />
-      <h4 class="main__title title">Информация</h4>
-      <p class="main__information name">Имя</p>
-      <p class="main__information surname">Фамилия</p>
-      <p class="main__information role">Должность</p>
-      <button class="main__more-btn more-btn">Редактировать</button>
+      <div class="main__column first">
+        <img class="main__user-icon user-icon"
+             :src="defaultPicture"
+             alt="defaultPicture"
+        />
+      </div>
+      <div class="main__column second">
+        <h6 class="main__title title">Информация</h6>
+        <p class="main__information name">Имя</p>
+        <p class="main__information surname">Фамилия</p>
+        <p class="main__information role">Должность</p>
+      </div>
+      <div class="main__column third"></div>
+      <div class="main__column fourth">
+        <button class="main__more-btn more-btn">Редактировать</button>
+      </div>
+    </section>
+    <section class="tasks">
+      <h3 class="tasks__title title">Задачи</h3>
+      <div class="tasks__list left">
+        <h7 class="tasks__list list-title">Оставшиеся</h7>
+        <p>Оставшиеся</p>
+        <p>Оставшиеся</p>
+        <p>Оставшиеся</p>
+      </div>
+      <div class="tasks__list right">
+        <h8 class="tasks__list list-title">В процессе</h8>
+        <p2>В процессе</p2>
+        <p2>В процессе</p2>
+        <p2>В процессе</p2>
+      </div>
     </section>
   </main>
 </template>
@@ -23,33 +48,88 @@ export default {
 </script>
 
 <style scoped lang="scss">
-//.block {
-//  display: grid;
-//  grid-row-gap: 5px;
-//  grid-column-gap: 1px;
-//  grid-template-columns: 1fr 1fr 1fr 1fr;
-//  grid-template-areas:
-//      "user name surname btn"
-//      "user role role ."
-//      "user . ."
-//}
-//
-//.main__information {
-//  &__name {
-//    grid-area: name;
-//  }
-//  &__surname {
-//    grid-area: surname;
-//  }
-//  &__user-icon {
-//    grid-area: user;
-//  }
-//  &__role {
-//    grid-area: role;
-//  }
-//}
-//
-//.main__more-btn {
-//  grid-area: btn;
-//}
+
+.block {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10%;
+
+  .first {
+    width: 20%;
+    align-items: flex-end;
+  }
+
+  .second {
+    width: 25%;
+    display: grid;
+    grid-row-gap: 1px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:  "title title"
+                          "name sur"
+                          "role role";
+  }
+
+  .name {
+    grid-area: name;
+  }
+
+  .title {
+    grid-area: title;
+  }
+
+  .surname {
+    grid-area: sur;
+  }
+
+  .role {
+    grid-area: role;
+  }
+
+  .third {
+    width: 25%;
+  }
+
+  .fourth {
+    width: 25%;
+  }
+
+  .user-icon {
+    width: 185px;
+  }
+}
+
+.tasks {
+  display: grid;
+  grid-row-gap: 5px;
+  grid-column-gap: 100px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+      "title title"
+      "left right";
+
+  .left {
+    grid-area: left;
+    background: linear-gradient(95.68deg, #FF008A -16.11%, #8002FF 54.53%);
+    border-radius: 10px;
+    width: 100%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right {
+    grid-area: right;
+    background: white;
+    border-radius: 10px;
+    width: 100%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    grid-area: title;
+    margin-bottom: 3%;
+  }
+}
 </style>

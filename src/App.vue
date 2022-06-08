@@ -82,10 +82,61 @@ h3 {
 }
 h4 {
   font-size: 20px;
+
 }
 h5 {
   font-size: 16px;
   font-weight: 300;
+}
+h6 {
+  background-image: linear-gradient(225deg, #f70193, #a72cf2);
+  filter: drop-shadow(0 20px 30px #28d8ff33);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+h7 {
+  font-size: 20px;
+  background-color: white;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-weight: bold;
+}
+
+h8 {
+  font-size: 20px;
+  background-color: black;
+  color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-weight: bold;
+}
+p {
+  font-size: 20px;
+  font-style: normal;
+}
+
+p2 {
+  font-size: 20px;
+  font-style: normal;
+  background-color: black;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 a {
   text-decoration: none;
