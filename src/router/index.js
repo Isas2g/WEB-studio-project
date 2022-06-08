@@ -8,6 +8,7 @@ import FeedbackPage from "../pages/Feedback/FeedbackPage";
 import WorkInProgress from "../components/WorkInProgress";
 import Login from "@/pages/Login/Login";
 import Profile from "@/pages/Profile/Profile";
+import Tasks from "@/pages/Tasks/Tasks";
 
 
 Vue.use(VueRouter)
@@ -57,6 +58,11 @@ const routes = [
         path: '/profile',
         name: 'Profile',
         component: Profile
+    },
+    {
+        path: '/tasks',
+        name: 'Tasks',
+        component: Tasks
     }
 ]
 

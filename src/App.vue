@@ -126,6 +126,7 @@ h8 {
 p {
   font-size: 20px;
   font-style: normal;
+
 }
 
 p2 {
