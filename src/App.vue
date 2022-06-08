@@ -129,9 +129,22 @@ p {
 
 }
 
+p1 {
+  font-size: 20px;
+  font-style: normal;
+  background-color: white;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  margin-top: 2%;
+}
+
 p2 {
   font-size: 20px;
   font-style: normal;
+  margin-top: 2%;
   background-color: black;
   -webkit-text-fill-color: transparent;
   background-clip: text;

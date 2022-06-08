@@ -22,9 +22,9 @@
       <h3 class="tasks__title title">Задачи</h3>
       <div class="tasks__list left">
         <h7 class="tasks__list list-title">Оставшиеся</h7>
-        <p>Оставшиеся</p>
-        <p>Оставшиеся</p>
-        <p>Оставшиеся</p>
+        <p1>Оставшиеся</p1>
+        <p1>Оставшиеся</p1>
+        <p1>Оставшиеся</p1>
       </div>
       <div class="tasks__list right">
         <h8 class="tasks__list list-title">В процессе</h8>

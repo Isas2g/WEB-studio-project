@@ -46,7 +46,7 @@ export default {
     flex-direction: column;
     background: white;
     border-radius: 10px;
-    padding: 2%;
+    padding: 5%;
   }
   .active {
     grid-area: center;
@@ -54,15 +54,19 @@ export default {
     flex-direction: column;
     background: linear-gradient(95.68deg, #FF008A -16.11%, #8002FF 54.53%);
     border-radius: 10px;
-    padding: 2%;
+    padding: 5%;
   }
   .consider {
     background: linear-gradient(95.68deg, #ff0000 -16.11%, #ff008a 54.53%);
     border-radius: 10px;
-    padding: 2%;
+    padding: 5%;
     grid-area: right;
     display: flex;
     flex-direction: column;
+  }
+
+  .title {
+    text-align: center;
   }
 
 }
