@@ -9,8 +9,7 @@
       </div>
       <div class="main__column second">
         <h6 class="main__title title">Информация</h6>
-        <p class="main__information name">Имя</p>
-        <p class="main__information surname">Фамилия</p>
+        <p class="main__information name">Имя Фамилия</p>
         <p class="main__information role">Должность</p>
       </div>
       <div class="main__column third"></div>
@@ -22,15 +21,15 @@
       <h3 class="tasks__title title">Задачи</h3>
       <div class="tasks__list left">
         <h7 class="tasks__list list-title">Оставшиеся</h7>
-        <p1>Оставшиеся</p1>
-        <p1>Оставшиеся</p1>
-        <p1>Оставшиеся</p1>
+        <p class="tasks__name one">Оставшиеся</p>
+        <p class="tasks__name one">Оставшиеся</p>
+        <p class="tasks__name one">Оставшиеся</p>
       </div>
       <div class="tasks__list right">
         <h8 class="tasks__list list-title">В процессе</h8>
-        <p2>В процессе</p2>
-        <p2>В процессе</p2>
-        <p2>В процессе</p2>
+        <p class="tasks__name two">В процессе</p>
+        <p class="tasks__name two">В процессе</p>
+        <p class="tasks__name two">В процессе</p>
       </div>
     </section>
   </main>
@@ -65,7 +64,7 @@ export default {
     grid-row-gap: 1px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:  "title title"
-                          "name sur"
+                          "name name"
                           "role role";
   }
 
@@ -75,10 +74,6 @@ export default {
 
   .title {
     grid-area: title;
-  }
-
-  .surname {
-    grid-area: sur;
   }
 
   .role {
@@ -130,6 +125,31 @@ export default {
   .title {
     grid-area: title;
     margin-bottom: 3%;
+  }
+
+
+  .one {
+    font-size: 20px;
+    font-style: normal;
+    background-color: white;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    margin-top: 2%;
+  }
+
+  .two {
+    font-size: 20px;
+    font-style: normal;
+    margin-top: 2%;
+    background-color: black;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 }
 </style>
