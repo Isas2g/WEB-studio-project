@@ -244,7 +244,6 @@ export default {
     align-content: end;
     justify-content: center;
     margin-top: 291px;
-    //padding: 0 150px 0 150px;
     text-align: center;
     width: 100%;
   }

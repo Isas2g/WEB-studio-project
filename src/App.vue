@@ -150,6 +150,12 @@ a {
   font-size: 16px;
 }
 
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1000px;
+  }
+}
+
 @media (max-width: 1024px) {
   button.more-btn {
     width: 250px;
