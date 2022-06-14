@@ -27,12 +27,19 @@
   </section>
     <section class="backlog">
       <h1 class="backlog__title title">Бэклог</h1>
-      <p class="backlog__sprint title">Спринт 1</p>
+      <p class="backlog__sprint sprint-title">Спринт 1</p>
       <div class="backlog__sprint first">
-        <p class="backlog_sprint task-first">текст текст текст</p>
-        <p class="backlog_sprint task-second">текст текст текст</p>
-        <p class="backlog_sprint task-second">текст текст текст</p>
-        <p class="backlog_sprint task-first">текст текст текст</p>
+        <div class="backlog__sprint style-one"><p class="backlog_sprint task-first">текст текст текст</p></div>
+        <div class="backlog__sprint style-two"><p class="backlog_sprint task-second">текст текст текст</p></div>
+        <div class="backlog__sprint style-two"><p class="backlog_sprint task-second">текст текст текст</p></div>
+        <div class="backlog__sprint style-one"><p class="backlog_sprint task-first">текст текст текст</p></div>
+      </div>
+      <p class="backlog__sprint sprint-title">Спринт 2</p>
+      <div class="backlog__sprint first">
+        <div class="backlog__sprint style-one"><p class="backlog_sprint task-first">текст текст текст</p></div>
+        <div class="backlog__sprint style-two"><p class="backlog_sprint task-second">текст текст текст</p></div>
+        <div class="backlog__sprint style-two"><p class="backlog_sprint task-second">текст текст текст</p></div>
+        <div class="backlog__sprint style-one"><p class="backlog_sprint task-first">текст текст текст</p></div>
       </div>
     </section>
   </main>
@@ -144,9 +151,58 @@ export default {
 }
 
 .backlog {
+
   .title {
     margin-top: 5%;
     margin-bottom: 5%;
+  }
+
+  .sprint-title {
+    font-weight: bold;
+  }
+
+  .first {
+    margin-left: 5%;
+    margin-right: 7%;
+    margin-bottom: 5%;
+  }
+
+  .style-one {
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 1%;
+    height: 42px;
+  }
+
+  .style-two {
+    background: linear-gradient(95.68deg, #ff0000 -16.11%, #ff008a 54.53%);
+    border-radius: 5px;
+    padding-left: 1%;
+    height: 42px;
+  }
+
+  .task-second {
+    font-size: 20px;
+    font-style: normal;
+    background-color: white;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-weight: bold;
+  }
+
+  .task-first {
+    font-size: 20px;
+    font-style: normal;
+    background-color: black;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-weight: bold;
   }
 }
 </style>
