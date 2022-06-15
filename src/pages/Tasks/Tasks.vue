@@ -205,4 +205,12 @@ export default {
     font-weight: bold;
   }
 }
+
+@media (max-width: 1024px) {
+  .main__more-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+}
 </style>

@@ -152,15 +152,21 @@ a {
 
 @media (max-width: 1440px) {
   .container {
-    max-width: 1000px;
+    //max-width: 1000px;
   }
 }
 
 @media (max-width: 1024px) {
   button.more-btn {
-    width: 250px;
+    max-width: 250px;
+    width: 100%;
     height: 45px;
     margin-top: 10px;
+  }
+
+  .container {
+    margin-left: 6%;
+    margin-right: 6%;
   }
 }
 </style>

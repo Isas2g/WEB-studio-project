@@ -102,8 +102,17 @@ export default {
   align-items: center;
 }
 
-input[type="text"] {
-  background: #ffffff;
-  color: linear-gradient(95.68deg, #FF008A -16.11%, #8002FF 54.53%);
+@media (max-width: 1024px) {
+  .block {
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .form__input {
+
+  }
+
 }
+
+
 </style>

@@ -311,22 +311,6 @@ export default {
 @media (max-width: 1440px) {
 }
 @media (max-width: 1024px) {
-  .main {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-  .projects {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-  .feedback {
-    margin-left: 5%;
-    margin-right: 6%;
-  }
-  .footer {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
 }
 @media (max-width: 768px) {
   .main {
