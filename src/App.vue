@@ -22,7 +22,9 @@ export default {
 img {
   pointer-events: none;
 }
-
+.fixed {
+  overflow-y: hidden;
+}
 body {
   background-color: #000;
   color: #fff;
@@ -82,7 +84,6 @@ h3 {
 }
 h4 {
   font-size: 20px;
-
 }
 h5 {
   font-size: 16px;
@@ -126,7 +127,6 @@ h8 {
 p {
   font-size: 20px;
   font-style: normal;
-
 }
 
 a {
