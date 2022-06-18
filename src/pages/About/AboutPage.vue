@@ -226,6 +226,18 @@ h3.direction__title {
     &__members {
       flex-direction: column;
     }
+    .members-two {
+      justify-content: center;
+
+      .direction__member:first-of-type {
+        margin: 10px 0 0 0;
+        padding-bottom: 5%;
+      }
+      .direction__member:not(:first-of-type) {
+        margin: 10px 0 0 0;
+        padding-bottom: 5%;
+      }
+    }
   }
 }
 </style>

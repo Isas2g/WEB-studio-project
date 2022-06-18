@@ -107,12 +107,36 @@ export default {
     max-width: 600px;
     width: 100%;
   }
+}
 
-  .form__input {
+@media (max-width: 425px)
+{
+  .block {
+    max-width: 200px;
+    display: grid;
+    grid-row-gap: 5px;
+    grid-column-gap: 1px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "name name name"
+      "password password password"
+      "text . forgotten"
+      ". login .";
 
+  }
+  .forgotten {
+    grid-area: forgotten;
+    margin-right: 2%;
+    text-decoration: underline;
+    font-size: 14px;
+  }
+  .text {
+    grid-area: text;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
   }
 
 }
-
 
 </style>

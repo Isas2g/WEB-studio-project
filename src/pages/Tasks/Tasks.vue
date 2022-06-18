@@ -3,19 +3,19 @@
   <h1 class="main__title title">Задачи</h1>
   <section class="main list">
     <div class="main__list all">
-      <h8 class="main__list title">Все</h8>
+      <h class="main__list title-two">Все</h>
       <p class="main__name two">Задача</p>
       <p class="main__name two">Задача</p>
       <p class="main__name two">Задача</p>
     </div>
     <div class="main__list active">
-      <h7 class="main__list title">Активные</h7>
+      <h class="main__list title-one">Активные</h>
       <p class="main__name one">Задача</p>
       <p class="main__name one">Задача</p>
       <p class="main__name one">Задача</p>
     </div>
     <div class="main__list consider">
-      <h7 class="main__list title">На рассмотрении</h7>
+      <h class="main__list title-one">На рассмотрении</h>
       <p class="main__name one">Задача</p>
       <p class="main__name one">Задача</p>
       <p class="main__name one">Задача</p>
@@ -148,6 +148,29 @@ export default {
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }
+
+  .title-one {
+    font-size: 20px;
+    background-color: white;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-weight: bold;
+  }
+
+  .title-two {
+    font-size: 20px;
+    background-color: black;
+    color: black;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-weight: bold;
+  }
 }
 
 .backlog {
@@ -211,6 +234,51 @@ export default {
     width: 100%;
     text-align: center;
     padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .main__list {
+    .title-one {
+      padding-top: 0;
+      margin-bottom: 2%;
+    }
+    .title-two {
+      padding-top: 0;
+      margin-bottom: 2%;
+    }
+  }
+  .main__more-btn {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .list
+  {
+    .all {
+      padding-top: 0;
+      width: 90%;
+      max-width: 195px;
+    }
+    .active {
+      paddin-top: 0;
+      width: 90%;
+      max-width: 195px;
+    }
+    .consider {
+      padding-top: 0;
+      width: 90%;
+      max-width: 195px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .list {
+    .main__more-btn {
+      min-width: 300px;
+      width: 100%;
+    }
   }
 }
 </style>

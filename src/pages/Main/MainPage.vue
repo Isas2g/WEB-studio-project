@@ -308,10 +308,6 @@ export default {
     height: 25px;
   }
 }
-@media (max-width: 1440px) {
-}
-@media (max-width: 1024px) {
-}
 @media (max-width: 768px) {
   .main {
     &__block {
@@ -491,7 +487,19 @@ export default {
     }
   }
 }
-@media (max-width: 540px) {
+@media (max-width: 425px) {
+  .projects {
+    &__container {
+      margin-left: 0;
+      padding: 0;
+      align-content: center;
+    }
+  }
+  .feedback {
+    &__body {
+      margin-left: 0;
+    }
+  }
 }
 @media screen and (max-width: 376px) {
   .main {

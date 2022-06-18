@@ -102,28 +102,6 @@ h6 {
   font-weight: bold;
 }
 
-h7 {
-  font-size: 20px;
-  background-color: white;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  font-weight: bold;
-}
-
-h8 {
-  font-size: 20px;
-  background-color: black;
-  color: black;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  font-weight: bold;
-}
 p {
   font-size: 20px;
   font-style: normal;
@@ -168,6 +146,27 @@ a {
     margin-left: 6%;
     margin-right: 6%;
   }
+}
+
+@media (max-width: 768px)
+{
+  button.more-btn {
+    max-width: 300px;
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 425px)
+{
+  .container {
+    margin: 0 auto;
+  }
+
 }
 </style>
 
