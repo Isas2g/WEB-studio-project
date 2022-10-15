@@ -31,6 +31,7 @@ import Review from "./components/Review.vue";
 import defaultPicture from "../../assets/images/user-icon.png";
 
 export default {
+  name: "FeedbackPage",
   components: {
     Review,
   },

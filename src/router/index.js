@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import MainPage from "../pages/Main/MainPage.vue";
-import AboutPage from "../pages/About/AboutPage.vue";
-import JoinPage from "../pages/Join/JoinPage.vue";
-import OurProjects from "@/pages/Projects/OurProjects";
-import FeedbackPage from "../pages/Feedback/FeedbackPage";
-import WorkInProgress from "../components/WorkInProgress";
-import Login from "@/pages/Login/Login";
-import Profile from "@/pages/Profile/Profile";
-import Tasks from "@/pages/Tasks/Tasks";
+import MainPage from "../pages/Main/";
+import AboutPage from "../pages/About/";
+import JoinPage from "../pages/Join/";
+import OurProjects from "@/pages/Projects/";
+import FeedbackPage from "../pages/Feedback/";
+import WorkInProgress from "../components/WorkInProgress/";
+import LoginPage from "@/pages/Login/";
+import Profile from "@/pages/Profile/";
+import Tasks from "@/pages/Tasks/";
 
 
 Vue.use(VueRouter)
@@ -47,7 +47,7 @@ const routes = [
     {
         path: '/entry',
         name: 'Login',
-        component: Login
+        component: LoginPage
     },
     {
         path: '/recovery',

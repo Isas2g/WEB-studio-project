@@ -212,6 +212,7 @@ import logoWeb from "@/assets/images/logo-web.png";
 // import aboutUs from "@/assets/images/burger-about-us.png";
 
 export default {
+  name: 'Header',
   data: () => ({
     logoWeb: logoWeb,
   }),

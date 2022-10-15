@@ -115,14 +115,15 @@ import DenisImage from "@/assets/images/team/denis.jpg";
 import SofaImage from "@/assets/images/team/sofa.jpg";
 import AlyonaImage from "@/assets/images/team/alyona.jpg";
 import AlonkaImage from "@/assets/images/team/alonka.jpg";
-import MemberCard from "@/components/MemberCard";
+import MemberCard from "@/components/MemberCard/";
 import BtnLeftArr from "@/assets/images/btn-left-strelka.png";
 import BtnArr from "@/assets/images/btn-strelka.png";
 
 export default {
+  name: 'CarouselTeam',
   components: {
     MemberCard,
-  },
+},
   data: () => ({
     NastyaImage: NastyaImage,
     RenskiyImage: RenskiyImage,

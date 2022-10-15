@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: 'MemberCard',
   props: {
     name: String,
     description: String,

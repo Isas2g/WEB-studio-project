@@ -112,7 +112,7 @@
 </template>
 
 <script>
-import MemberCard from "../../components/MemberCard.vue";
+import MemberCard from "../../components/MemberCard/";
 
 import NastyaImage from "../../assets/images/team/nastya.jpg";
 import RenskiyImage from "../../assets/images/team/renskiy.jpg";
@@ -129,6 +129,7 @@ import SmoothieFeed from "../../assets/images/smoothie-feed.jpg";
 import SecondProject from "../../assets/images/back-project.jpg";
 
 export default {
+  name: "AboutPage",
   components: {
     MemberCard,
   },

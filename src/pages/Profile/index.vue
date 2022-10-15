@@ -39,7 +39,7 @@
 import defaultPicture from "@/assets/images/user-icon.png";
 
 export default {
-  name: "Profile",
+  name: "ProfilePage",
   data: () => ({
     defaultPicture: defaultPicture,
   }),
