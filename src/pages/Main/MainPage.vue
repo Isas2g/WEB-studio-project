@@ -510,7 +510,7 @@ export default {
   }
   .projects {
     &__container {
-      margin-left: 25%;
+      margin-left: 30%;
     }
     &__body {
       padding-bottom: 40%;
@@ -518,21 +518,18 @@ export default {
   }
   .feedback {
     &__body {
-      //padding: 0 134px 117px 134px;
-      //padding: 0 0 0 0;
-      //margin-left: 50%;
-      width: 200px;
+      padding: 0;
+      margin: 0 0 0 25%;
+      width: auto;
       display: grid;
-      justify-items: center;
-      text-align: center;
-      flex-direction: column;
+      grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
-        "title"
-        "sub"
-        "user"
-        "name"
-        "text"
-        "btn";
+        ". title ."
+        ". sub ."
+        ". user ."
+        ". name ."
+        ". text ."
+        ". btn .";
     }
 
     &__title {
@@ -582,7 +579,7 @@ export default {
       color: white;
       justify-items: center;
       padding: 0 42px 0 42px;
-      margin-left: 24px;
+      margin-left: 0;
       text-align: center;
       width: 100%;
     }
@@ -654,6 +651,11 @@ export default {
       outline: none;
       color: white;
       height: 25px;
+    }
+    .more-btn
+    {
+      max-width: 200px;
+      margin-bottom: 80px;
     }
   }
 }
