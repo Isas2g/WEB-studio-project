@@ -357,7 +357,7 @@ export default {
       display: grid;
       justify-items: center;
       text-align: center;
-      flex-direction: column;
+      //flex-direction: column;
       grid-template-areas:
         "title"
         "sub"
@@ -491,13 +491,16 @@ export default {
   .projects {
     &__container {
       margin-left: 0;
-      padding: 0;
-      align-content: center;
+      padding: 0 0 0 0;
+      //align-content: center;
+      display: flex;
+      justify-content: center;
     }
   }
   .feedback {
     &__body {
       margin-left: 0;
+      justify-content: center;
     }
   }
 }
