@@ -1,6 +1,8 @@
+from rest_framework import status
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView
 from rest_framework.response import Response
+from django.http import JsonResponse
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .serializers import *
@@ -8,20 +10,18 @@ from .models import *
 from .service import *
 
 
-class ProjectsListCreateView(ListAPIView):
+class ProjectsListCreateView(ListAPIView, CreateAPIView):
     filter_backends = (DjangoFilterBackend,)
     filterset_class = ProjectFilter
     serializer_class = ProjectsSerializer
     queryset = Projects.objects.all()
     pagination_class = PaginationProjects
 
-    def post(self, request):
-        project = ProjectsSerializer(data=request.data)
-        if project.is_valid():
-            project.save()
-            return Response(status=201)
-        else:
-            return Response(status=400)
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class ProjectsView(APIView):
@@ -43,6 +43,41 @@ class ProjectsView(APIView):
         project = Projects.objects.get(id=pk)
         project.delete()
         return Response(status=201)
+
+
+class ProjectsFilesView(ListCreateAPIView):
+    serializer_class = ProjectsFilesSerializer
+    queryset = ProjectFile.objects.all()
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    # def get(self, request, *args, **kwargs):
+    #     pk = kwargs['pk']
+    #     print(pk)
+    #     project = Projects.objects.get(id=pk)
+    #     print(project)
+    #     files = project.files.all()
+    #     print(files)
+    #     serializer = self.get_serializer(files, many=True)
+    #     print(serializer)
+    #     return JsonResponse(serializer.data)
+
+    # def patch(self, request, pk):
+    #     project = Projects.objects.get(id=pk)
+    #     serializer = ProjectsSerializer(project, data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(ProjectsDetailSerializer(Projects.objects.get(id=pk)).data)
+    #     else:
+    #         return Response(status=400)
+    #
+    # def delete(self, request, pk):
+    #     project = Projects.objects.get(id=pk)
+    #     project.delete()
+    #     return Response(status=201)
 
 
 class PositionsListCreateView(APIView):

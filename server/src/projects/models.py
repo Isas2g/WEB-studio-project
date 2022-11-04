@@ -1,14 +1,24 @@
+from django.core.validators import FileExtensionValidator
+import os
 from django.db import models
+from django.conf import settings
 
+from ..base.services import validate_size_image, \
+    get_path_upload_project_icon, get_path_upload_project_files
 from ..users.models import User
 
 
 class Projects(models.Model):
     title = models.CharField(max_length=64)
-    created_at = models.DateTimeField()
-    closed_at = models.DateTimeField(blank=True, null=True)
+    created_at = models.DateField()
+    closed_at = models.DateField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    icon_url = models.ImageField(upload_to='images/', blank=True, null=True)
+    icon = models.ImageField(upload_to=get_path_upload_project_icon,
+                             null=True,
+                             validators=[
+                                 FileExtensionValidator(allowed_extensions=['jpg']),
+                                 validate_size_image
+                             ])
     creator = models.ForeignKey(User, verbose_name="создатель", related_name="project_creator",
                                 on_delete=models.CASCADE, default=None)
 
@@ -16,6 +26,19 @@ class Projects(models.Model):
         db_table = 'projects'
         verbose_name = 'Проект'
         verbose_name_plural = 'Проекты'
+
+    def __str__(self):
+        return self.title
+
+
+class ProjectFile(models.Model):
+    title = models.CharField("Название", max_length=255)
+    file = models.FileField("Файл",
+                            upload_to=get_path_upload_project_files,
+                            validators=[FileExtensionValidator(
+                                allowed_extensions=['txt, doc, docx, pdf, xlsx'])]
+                            )
+    project = models.ForeignKey("Projects", on_delete=models.CASCADE, related_name="files")
 
     def __str__(self):
         return self.title

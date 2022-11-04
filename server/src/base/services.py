@@ -2,7 +2,14 @@ from django.core.exceptions import ValidationError
 
 
 def get_path_upload_avatar(instance, file):
-    return f'avatar/{instance.id}/{file}'
+    return f'avatar/{instance.username}/{file}'
+
+
+def get_path_upload_project_icon(instance, file):
+    return f'project/icon/{instance}/{file}'
+
+def get_path_upload_project_files(instance, file):
+    return f'project/files/{instance}/{file}'
 
 
 def validate_size_image(file_obj):

@@ -1,6 +1,4 @@
-from django.db.models import Model
 from loguru import logger
-from rest_framework.relations import SlugRelatedField
 from rest_framework.serializers import CharField, EmailField, ModelSerializer, Serializer
 
 from src.users.models import User, UserContact, UserRole

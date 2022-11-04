@@ -4,7 +4,14 @@ from .models import *
 
 @admin.register(Projects)
 class ProjectsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'created_at', 'creator')
+    list_display = ('id', 'title', 'created_at',
+                    # 'creator'
+                    )
+    list_display_links = ('id',)
+
+@admin.register(ProjectFile)
+class ProjectsFilesAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'file', 'project')
     list_display_links = ('id',)
 
 
