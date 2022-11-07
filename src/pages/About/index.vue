@@ -82,30 +82,15 @@
       <h2 class="about-projects__title">Наши проекты</h2>
 
       <div class="about-project__projects">
-        <div class="about-project__project">
+        <div class="about-project__project" v-for="(project, index) in projects" :key="index">
           <img
             class="about-project__image"
-            :src="SmoothieFeed"
-            alt="SmoothieFeed"
-          />
-          <h3 class="about-project__project-title">SmoothieFeed</h3>
-          <a
-            href="http://pd-2021-2.std-1376.ist.mospolytech.ru"
-            target="__blank"
-            class="about-project__button more-btn"
-            >Подробнее</a
-          >
-        </div>
-
-        <!-- <div class="about-project__project">
-          <img
-            class="about-project__image"
-            :src="SecondProject"
+            :src="project.icon"
             alt="SecondProject"
           />
-          <h3 class="about-project__project-title">Название</h3>
-          <button class="about-project__button more-btn">Подробнее</button>
-        </div> -->
+          <h3 class="about-project__project-title">{{ project.title }}</h3>
+          <router-link class="about-project__button more-btn" type="button" :to="{ name: 'OurProjects', params: {project: project}}">Подробнее</router-link>
+        </div>
       </div>
     </section>
   </main>
@@ -125,8 +110,7 @@ import SofaImage from "../../assets/images/team/sofa.jpg";
 import AlyonaImage from "../../assets/images/team/alyona.jpg";
 import AlonkaImage from "../../assets/images/team/alonka.jpg";
 
-import SmoothieFeed from "../../assets/images/smoothie-feed.jpg";
-import SecondProject from "../../assets/images/back-project.jpg";
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: "AboutPage",
@@ -144,9 +128,20 @@ export default {
     SofaImage: SofaImage,
     AlyonaImage: AlyonaImage,
     AlonkaImage: AlonkaImage,
-    SmoothieFeed: SmoothieFeed,
-    SecondProject: SecondProject,
   }),
+  computed: {
+    ...mapGetters({
+      projects: 'getProjects',
+    })
+  },
+  mounted() {
+    this.loadProjects()
+  },
+  methods: {
+    ...mapActions({
+      loadProjects: 'loadProjects',
+    })
+  },
 };
 </script>
 
@@ -204,13 +199,22 @@ h3.direction__title {
   }
 }
 
+.about-projects {
+  margin: 50px 0 0 0;
+}
 .about-project {
   &__projects {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(200px, 400px) minmax(200px, 400px);
+    grid-gap: 20px;
     justify-content: space-between;
+    margin: 40px 0 0 0;
   }
   &__project {
-    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
   &__image {
     width: 100%;

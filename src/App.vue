@@ -1,7 +1,9 @@
 <template>
   <div class="app">
     <Header />
-    <router-view />
+    <transition name="component-fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -12,13 +14,21 @@ import Header from "./components/Header/";
 export default {
   components: {
     Header,
-  },
+  }
 };
 </script>
 
 <style lang="scss">
 @import url("./fonts.scss");
 @import url("./breakpoints.scss");
+
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
 img {
   pointer-events: none;
 }
