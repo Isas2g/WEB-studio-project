@@ -35,7 +35,7 @@ const routes = [
         component: FeedbackPage
     },
     {
-        path: '/ourprojects',
+        path: '/ourprojects/:project',
         name: 'OurProjects',
         component: OurProjects
     },
