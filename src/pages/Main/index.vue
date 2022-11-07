@@ -106,6 +106,7 @@ import UserIcon from "@/assets/images/user-icon.png";
 import BtnArr from "@/assets/images/btn-strelka.png";
 import CarouselTeam from "@/components/CarouselTeam";
 import CarouselSlide from "@/components/CarouselSlide";
+import axios from 'axios';
 
 export default {
   components: { CarouselSlide, CarouselTeam },
@@ -113,12 +114,22 @@ export default {
     SmoothieFeed: SmoothieFeed,
     UserIcon: UserIcon,
     BtnArr: BtnArr,
+    data: null,
   }),
   methods: {
     showAlert: function () {
       alert("Эта часть сайта ещё в работе...");
     },
   },
+  mounted() {
+    axios
+      .get('/projects/')
+      .then(data => {
+        this.data = data;
+        console.log(this.data.data);
+      });
+    
+  }
 };
 </script>
 
