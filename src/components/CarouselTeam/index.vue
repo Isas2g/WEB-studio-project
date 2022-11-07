@@ -1,6 +1,6 @@
 <template>
-      <section class="team__body">
-        <h1 class="team__title">Наша команда</h1>
+  <section class="team__body">
+    <h1 class="team__title">Наша команда</h1>
 <!--        <button class="team__btn prev">-->
 <!--          <img-->
 <!--              class="team__arrow"-->
@@ -8,100 +8,100 @@
 <!--              alt="BtnArr"-->
 <!--          />-->
 <!--        </button>-->
-        <div class="team__container carousel">
-          <div class="carousel-track">
-            <div class="carousel-item item">
-              <h3 class="item__title">Менеджеры</h3>
-              <ul class="item__members">
-                <MemberCard
-                    name="Настя"
-                    description="А тут описание под заголовком"
-                    :image="NastyaImage"
-                />
-                <MemberCard
-                    name="Ренат"
-                    description="А тут описание под заголовком"
-                    :image="RenskiyImage"
-                />
-                <MemberCard
-                    name="Влад"
-                    description="А тут описание под заголовком"
-                    :image="VladImage"
-                />
-              </ul>
-            </div>
-
-            <div class="carousel-item item">
-              <h3 class="item__title">Бэкэнд</h3>
-              <ul class="item__members">
-                <MemberCard
-                    name="Илья"
-                    description="А тут описание под заголовком"
-                    :image="IlyaImage"
-                />
-                <MemberCard
-                    name="Данил"
-                    description="А тут описание под заголовком"
-                    :image="MiheyImage"
-                />
-                <MemberCard
-                    name="Вася"
-                    description="А тут описание под заголовком"
-                    :image="VasyaImage"
-                />
-              </ul>
-            </div>
-
-            <div class="carousel-item item">
-              <h3 class="item__title">Фронтэнд</h3>
-              <ul class="item__members members-two">
-                <MemberCard
-                    name="Денис"
-                    description="А тут описание под заголовком"
-                    :image="DenisImage"
-                />
-                <MemberCard
-                    name="Софа"
-                    description="А тут описание под заголовком"
-                    :image="SofaImage"
-                />
-              </ul>
-            </div>
-
-            <div class="carousel-item item">
-              <h3 class="item__title">Дизайнеры</h3>
-              <ul class="item__members members-two">
-                <MemberCard
-                    name="Алёна"
-                    description="А тут описание под заголовком"
-                    :image="AlyonaImage"
-                />
-                <MemberCard
-                    name="Алёна"
-                    description="А тут описание под заголовком"
-                    :image="AlonkaImage"
-                />
-              </ul>
-            </div>
-          </div>
-          <div class="carousel-btn">
-            <button v-on:click="prevTeamSlide" class="btn-prev">
-              <img
-                class="projects__arrow"
-                :src="BtnLeftArr"
-                alt="BtnLeftArr"
-              />
-            </button>
-            <button v-on:click="nextTeamSlide" class="btn-next">
-              <img
-                class="projects__arrow"
-                :src="BtnArr"
-                alt="BtnArr"
-              />
-            </button>
-          </div>
+    <div class="team__container carousel">
+      <div class="carousel-track">
+        <div class="carousel-item item">
+          <h3 class="item__title">Менеджеры</h3>
+          <ul class="item__members">
+            <MemberCard
+                name="Настя"
+                description="А тут описание под заголовком"
+                :image="NastyaImage"
+            />
+            <MemberCard
+                name="Ренат"
+                description="А тут описание под заголовком"
+                :image="RenskiyImage"
+            />
+            <MemberCard
+                name="Влад"
+                description="А тут описание под заголовком"
+                :image="VladImage"
+            />
+          </ul>
         </div>
-      </section>
+
+        <div class="carousel-item item">
+          <h3 class="item__title">Бэкэнд</h3>
+          <ul class="item__members">
+            <MemberCard
+                name="Илья"
+                description="А тут описание под заголовком"
+                :image="IlyaImage"
+            />
+            <MemberCard
+                name="Данил"
+                description="А тут описание под заголовком"
+                :image="MiheyImage"
+            />
+            <MemberCard
+                name="Вася"
+                description="А тут описание под заголовком"
+                :image="VasyaImage"
+            />
+          </ul>
+        </div>
+
+        <div class="carousel-item item">
+          <h3 class="item__title">Фронтэнд</h3>
+          <ul class="item__members members-two">
+            <MemberCard
+                name="Денис"
+                description="А тут описание под заголовком"
+                :image="DenisImage"
+            />
+            <MemberCard
+                name="Софа"
+                description="А тут описание под заголовком"
+                :image="SofaImage"
+            />
+          </ul>
+        </div>
+
+        <div class="carousel-item item">
+          <h3 class="item__title">Дизайнеры</h3>
+          <ul class="item__members members-two">
+            <MemberCard
+                name="Алёна"
+                description="А тут описание под заголовком"
+                :image="AlyonaImage"
+            />
+            <MemberCard
+                name="Алёна"
+                description="А тут описание под заголовком"
+                :image="AlonkaImage"
+            />
+          </ul>
+        </div>
+      </div>
+      <div class="carousel-btn">
+        <button v-on:click="prevTeamSlide" class="btn-prev">
+          <img
+            class="projects__arrow"
+            :src="BtnLeftArr"
+            alt="BtnLeftArr"
+          />
+        </button>
+        <button v-on:click="nextTeamSlide" class="btn-next">
+          <img
+            class="projects__arrow"
+            :src="BtnArr"
+            alt="BtnArr"
+          />
+        </button>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -123,7 +123,7 @@ export default {
   name: 'CarouselTeam',
   components: {
     MemberCard,
-},
+  },
   data: () => ({
     NastyaImage: NastyaImage,
     RenskiyImage: RenskiyImage,
@@ -158,7 +158,8 @@ export default {
         document.getElementsByClassName('carousel-track')[0].style.left = `-${this.slideCount}%`;
       }
     }
-  }
+  },
+  
 };
 
 </script>
