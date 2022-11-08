@@ -63,6 +63,10 @@ const routes = [
         path: '/tasks',
         name: 'Tasks',
         component: Tasks
+    },
+    {
+        path: '*',
+        redirect: '/'
     }
 ]
 

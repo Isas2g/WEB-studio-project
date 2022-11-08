@@ -12,7 +12,7 @@ export default new Vuex.Store({
   actions: {
     loadProjects (ctx) {
       axios
-      .get('/projects/')
+      .get('/api/v1/projects/')
       .then(data => {
         this.data = data;
         // console.log(this.data.data);
@@ -21,7 +21,7 @@ export default new Vuex.Store({
     },
     loadUsers (ctx) {
       axios
-      .get('/users/')
+      .get('api/v1/users/')
       .then(data => {
         this.data = data
         ctx.commit('SET_users', this.data.data.results)

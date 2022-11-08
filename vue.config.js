@@ -3,8 +3,8 @@
 module.exports = {
   devServer: {
     proxy: {
-      '/*': {
-        target: 'http://web-studio.std-1961.ist.mospolytech.ru/api/v1/',
+      '/api/v1/*': {
+        target: 'http://web-studio.std-1961.ist.mospolytech.ru/',
         changeOrigin: true,
         ws: true
       }
