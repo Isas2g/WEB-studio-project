@@ -1,30 +1,39 @@
 <template>
   <main class="main">
-  <h1 class="main__title title">Задачи</h1>
-  <section class="main list">
-    <div class="main__list all">
-      <h class="main__list title-two">Все</h>
-      <p class="main__name two">Задача</p>
-      <p class="main__name two">Задача</p>
-      <p class="main__name two">Задача</p>
-    </div>
-    <div class="main__list active">
-      <h class="main__list title-one">Активные</h>
-      <p class="main__name one">Задача</p>
-      <p class="main__name one">Задача</p>
-      <p class="main__name one">Задача</p>
-    </div>
-    <div class="main__list consider">
-      <h class="main__list title-one">На рассмотрении</h>
-      <p class="main__name one">Задача</p>
-      <p class="main__name one">Задача</p>
-      <p class="main__name one">Задача</p>
-    </div>
-    <button v-on:click="showAlert" class="projects__arrow">
-      <img :src="BtnArr" alt="BtnArr"/>
-    </button>
-    <button class="main__more-btn more-btn">Документы</button>
-  </section>
+    <h1 class="main__title title">Задачи</h1>
+    <section class="main list">
+      <div class="main__list all">
+        <div class="main__row">
+          <h class="main__list title-two">Все</h>
+          <div class="main__list btn-plus" @click="addTask()">&#43;</div>
+        </div>
+        <Task/>
+        <Task/>
+        <Task/>
+      </div>
+      <div class="main__list active">
+        <div class="main__row">
+          <h class="main__list title-one">Активные</h>
+          <div class="main__list btn-plus" @click="addTask()">&#43;</div>
+        </div>
+        <Task/>
+        <Task/>
+        <Task/>
+      </div>
+      <div class="main__list consider">
+        <div class="main__row">
+          <h class="main__list title-one">На рассмотрении</h>
+          <div class="main__list btn-plus" @click="addTask()">&#43;</div>
+        </div>
+        <Task/>
+        <Task/>
+        <Task/>
+      </div>
+      <button v-on:click="showAlert" class="projects__arrow">
+        <img :src="BtnArr" alt="BtnArr"/>
+      </button>
+      <button class="main__more-btn more-btn">Документы</button>
+    </section>
     <section class="backlog">
       <h1 class="backlog__title title">Бэклог</h1>
       <p class="backlog__sprint sprint-title">Спринт 1</p>
@@ -42,14 +51,18 @@
         <div class="backlog__sprint style-one"><p class="backlog_sprint task-first">текст текст текст</p></div>
       </div>
     </section>
+    <TaskAdding ref="modalData"/>
   </main>
 </template>
 
 <script>
 import BtnArr from "@/assets/images/btn-strelka.png";
+import Task from "@/pages/Tasks/components/Task";
+import TaskAdding from "@/pages/Tasks/components/TaskAdding";
 
 export default {
   name: "Tasks",
+  components: {Task, TaskAdding},
   data: () => ({
     BtnArr: BtnArr,
   }),
@@ -57,6 +70,9 @@ export default {
     showAlert: function () {
       alert("Эта часть сайта ещё в работе...");
     },
+    addTask() {
+      this.$refs.modalData.show = true;
+    }
   },
 }
 </script>
@@ -66,9 +82,11 @@ export default {
   margin-left: 3%;
   margin-right: 1%;
 }
+
 .title {
   margin-bottom: 3%;
 }
+
 .list {
   display: grid;
   align-content: center;
@@ -80,6 +98,7 @@ export default {
   grid-template-columns: 10fr 10fr 10fr 0.5fr;
   grid-template-areas: "left center right arrow"
                         ". btn . .";
+
   .all {
     grid-area: left;
     display: flex;
@@ -88,7 +107,17 @@ export default {
     border-radius: 10px;
     padding: 5%;
     width: 90%;
+    font-size: 20px;
+    font-style: normal;
+    //margin-top: 2%;
+    color: black;
+    //-webkit-text-fill-color: transparent;
+    //background-clip: text;
+    //-webkit-background-clip: text;
+    //box-decoration-break: clone;
+    //-webkit-box-decoration-break: clone;
   }
+
   .active {
     grid-area: center;
     display: flex;
@@ -97,7 +126,17 @@ export default {
     border-radius: 10px;
     padding: 5%;
     width: 90%;
+    font-size: 20px;
+    font-style: normal;
+    color: white;
+    //-webkit-text-fill-color: transparent;
+    //background-clip: text;
+    //-webkit-background-clip: text;
+    //box-decoration-break: clone;
+    //-webkit-box-decoration-break: clone;
+    //margin-top: 2%;
   }
+
   .consider {
     background: linear-gradient(95.68deg, #ff0000 -16.11%, #ff008a 54.53%);
     border-radius: 10px;
@@ -106,6 +145,9 @@ export default {
     display: flex;
     flex-direction: column;
     width: 90%;
+    font-size: 20px;
+    font-style: normal;
+    color: white;
   }
 
   .title {
@@ -125,29 +167,29 @@ export default {
     border: none;
   }
 
-  .one {
-    font-size: 20px;
-    font-style: normal;
-    background-color: white;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    margin-top: 2%;
-  }
+  //.one {
+  //  font-size: 20px;
+  //  font-style: normal;
+  //  background-color: white;
+  //  -webkit-text-fill-color: transparent;
+  //  background-clip: text;
+  //  -webkit-background-clip: text;
+  //  box-decoration-break: clone;
+  //  -webkit-box-decoration-break: clone;
+  //  margin-top: 2%;
+  //}
 
-  .two {
-    font-size: 20px;
-    font-style: normal;
-    margin-top: 2%;
-    background-color: black;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-  }
+  //.two {
+  //  font-size: 20px;
+  //  font-style: normal;
+  //  margin-top: 2%;
+  //  background-color: black;
+  //  -webkit-text-fill-color: transparent;
+  //  background-clip: text;
+  //  -webkit-background-clip: text;
+  //  box-decoration-break: clone;
+  //  -webkit-box-decoration-break: clone;
+  //}
 
   .title-one {
     font-size: 20px;
@@ -229,6 +271,19 @@ export default {
   }
 }
 
+.main__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+}
+
+.main__list {
+  .btn-plus {
+    padding-bottom: 5px;
+  }
+}
+
 @media (max-width: 1024px) {
   .main__more-btn {
     width: 100%;
@@ -243,6 +298,7 @@ export default {
       padding-top: 0;
       margin-bottom: 2%;
     }
+
     .title-two {
       padding-top: 0;
       margin-bottom: 2%;
@@ -253,18 +309,19 @@ export default {
     width: 100%;
   }
 
-  .list
-  {
+  .list {
     .all {
       padding-top: 0;
       width: 90%;
       max-width: 195px;
     }
+
     .active {
       paddin-top: 0;
       width: 90%;
       max-width: 195px;
     }
+
     .consider {
       padding-top: 0;
       width: 90%;
