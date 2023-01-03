@@ -11,7 +11,7 @@
     <Feedback />
 
     <FooterForm />
-    
+    <Footer />
   </main>
 </template>
 
@@ -19,6 +19,7 @@
 import SmoothieFeed from "@/assets/images/smoothie-feed.jpg"
 import CarouselTeam from "@/components/CarouselTeam"
 import CarouselSlide from "@/components/CarouselSlide"
+import Footer from "@/components/Footer"
 
 import TitleBlock from './components/TitleBlock'
 import Projects from './components/Projects'
@@ -34,7 +35,8 @@ export default {
     TitleBlock, 
     Projects,
     Feedback,
-    FooterForm
+    FooterForm,
+    Footer
   },
   data: () => ({
     SmoothieFeed: SmoothieFeed,
