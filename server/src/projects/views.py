@@ -45,39 +45,24 @@ class ProjectsView(APIView):
         return Response(status=201)
 
 
+class ProjectFeedbackView(ListCreateAPIView):
+    serializer_class = ProjectFeedbackSerializer
+    queryset = ProjectFeedback.objects.all()
+    pagination_class = PaginationProjectFeedback
+
+    def get_queryset(self):
+        project_id = self.kwargs['pk']
+        return ProjectFeedback.objects.filter(project=project_id)
+
 class ProjectsFilesView(ListCreateAPIView):
     serializer_class = ProjectsFilesSerializer
     queryset = ProjectFile.objects.all()
+
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-    # def get(self, request, *args, **kwargs):
-    #     pk = kwargs['pk']
-    #     print(pk)
-    #     project = Projects.objects.get(id=pk)
-    #     print(project)
-    #     files = project.files.all()
-    #     print(files)
-    #     serializer = self.get_serializer(files, many=True)
-    #     print(serializer)
-    #     return JsonResponse(serializer.data)
-
-    # def patch(self, request, pk):
-    #     project = Projects.objects.get(id=pk)
-    #     serializer = ProjectsSerializer(project, data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(ProjectsDetailSerializer(Projects.objects.get(id=pk)).data)
-    #     else:
-    #         return Response(status=400)
-    #
-    # def delete(self, request, pk):
-    #     project = Projects.objects.get(id=pk)
-    #     project.delete()
-    #     return Response(status=201)
 
 
 class PositionsListCreateView(APIView):

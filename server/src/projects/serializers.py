@@ -16,6 +16,11 @@ class ProjectsFilesSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ProjectFeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProjectFeedback
+        fields = '__all__'
+
 
 class ProjectsDetailSerializer(serializers.ModelSerializer):
     creator = UserSerializer()

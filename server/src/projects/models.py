@@ -43,6 +43,25 @@ class ProjectFile(models.Model):
     def __str__(self):
         return self.title
 
+class ProjectFeedback(models.Model):
+    username = models.CharField('ник',
+                                max_length=150)
+
+    CHOISE_ESTIMATION = [
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 5)
+    ]
+    estimation = models.IntegerField(choices=CHOISE_ESTIMATION)
+
+    comment = models.TextField(blank=True, null=True)
+
+    project = models.ForeignKey(Projects, 
+                                on_delete=models.CASCADE, 
+                                blank=True, 
+                                )
 
 class Positions(models.Model):
     name = models.CharField(max_length=64)
