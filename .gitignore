@@ -1,5 +1,4 @@
 /venv/
-/docker-compose.yml
 /.venv
 /.idea/
 /dev.env
